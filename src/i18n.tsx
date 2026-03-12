@@ -187,10 +187,7 @@ export function I18nProvider({ children }: { children: ReactNode }) {
     const stored = window.localStorage.getItem("lang")
     if (stored === "en" || stored === "it" || stored === "fr") {
       setLangState(stored)
-      return
     }
-    const nav = navigator.language.slice(0, 2)
-    if (nav === "it" || nav === "fr") setLangState(nav)
   }, [])
 
   const setLang = (value: Lang) => {
