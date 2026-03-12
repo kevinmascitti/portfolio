@@ -1,7 +1,9 @@
 import { motion } from "framer-motion"
 import FallingTags, { type Tag } from "./FallingTags"
+import { useI18n } from "../i18n"
 
 export default function Hero() {
+  const { t } = useI18n()
   const tags: Tag[] = [
     { id: "tag-software", label: "Software Engineer" },
     { id: "tag-3d", label: "3D Developer" },
@@ -34,10 +36,10 @@ export default function Hero() {
 
   return (
 
-    <section className="pt-32 pb-24 relative">
+    <section className="pt-0 sm:pt-24 pb-24 relative">
       <FallingTags
         tags={tags}
-        className="absolute left-0 right-0 top-0 h-[420px] sm:h-[480px] md:h-[560px] lg:h-[300px] z-20 pointer-events-auto"
+        className="absolute left-0 right-0 top-0 h-[560px] sm:h-[480px] md:h-[560px] lg:h-[300px] z-20 pointer-events-auto"
       />
 
       <motion.h1
@@ -59,14 +61,11 @@ export default function Hero() {
       >
 
         <p className="text-lg sm:text-xl max-w-md">
-          Hi, I'm Kevin, a software engineer
-          that loves to build modern apps.
+          {t("hero.left")}
         </p>
 
         <p className="text-lg sm:text-xl text-gray-600 max-w-md">
-          I create scalable web applications
-          using React, TypeScript and modern
-          cloud technologies.
+          {t("hero.right")}
         </p>
 
       </motion.div>

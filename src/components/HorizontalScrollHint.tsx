@@ -10,8 +10,8 @@ function Arrow({ direction }: { direction: "left" | "right" }) {
   const isLeft = direction === "left"
   return (
     <svg
-      width="18"
-      height="18"
+      width="20"
+      height="20"
       viewBox="0 0 24 24"
       fill="none"
       aria-hidden="true"
@@ -32,6 +32,13 @@ export default function HorizontalScrollHint({ className, children }: Props) {
   const [hasOverflow, setHasOverflow] = useState(false)
   const [canLeft, setCanLeft] = useState(false)
   const [canRight, setCanRight] = useState(false)
+
+  const scrollByDir = (direction: "left" | "right") => {
+    const el = ref.current
+    if (!el) return
+    const amount = Math.max(220, Math.floor(el.clientWidth * 0.8))
+    el.scrollBy({ left: direction === "left" ? -amount : amount, behavior: "smooth" })
+  }
 
   const update = useMemo(
     () => () => {
@@ -80,18 +87,44 @@ export default function HorizontalScrollHint({ className, children }: Props) {
       </div>
 
       {hasOverflow && canLeft ? (
-        <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-2">
-          <div className="rounded-full border border-black/10 bg-white/70 backdrop-blur-sm p-1 text-black/70 shadow-sm">
+        <div className="absolute inset-y-0 left-0 flex items-center pl-2">
+          <button
+            type="button"
+            aria-label="Scorri a sinistra"
+            onClick={() => scrollByDir("left")}
+            className="scroll-arrow ui-icon border backdrop-blur-sm shadow-sm"
+            style={{
+              borderRadius: 9999,
+              width: 44,
+              height: 44,
+              padding: 0,
+              display: "grid",
+              placeItems: "center",
+            }}
+          >
             <Arrow direction="left" />
-          </div>
+          </button>
         </div>
       ) : null}
 
       {hasOverflow && canRight ? (
-        <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
-          <div className="rounded-full border border-black/10 bg-white/70 backdrop-blur-sm p-1 text-black/70 shadow-sm">
+        <div className="absolute inset-y-0 right-0 flex items-center pr-2">
+          <button
+            type="button"
+            aria-label="Scorri a destra"
+            onClick={() => scrollByDir("right")}
+            className="scroll-arrow ui-icon border backdrop-blur-sm shadow-sm"
+            style={{
+              borderRadius: 9999,
+              width: 44,
+              height: 44,
+              padding: 0,
+              display: "grid",
+              placeItems: "center",
+            }}
+          >
             <Arrow direction="right" />
-          </div>
+          </button>
         </div>
       ) : null}
     </div>

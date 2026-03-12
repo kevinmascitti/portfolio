@@ -1,7 +1,9 @@
 import Reveal from "../components/Reveal"
 import HorizontalScrollHint from "../components/HorizontalScrollHint"
+import { useI18n } from "../i18n"
 
 export default function Experience() {
+  const { t } = useI18n()
 
   const items = [
     {
@@ -9,30 +11,28 @@ export default function Experience() {
       role: "Software Engineer",
       company: "Logistics Reply",
       location: "Torino, IT",
-      description:
-        "Frontend developer in a R&D team focused on product development, building user interfaces with JavaScript, HTML, CSS and React, with strong attention to UX and frontend architecture.",
+      description: t("experience.logistics.desc"),
     },
     {
       period: "Mar 2024 — Sep 2024",
       role: "Tech Director & Game Developer",
       company: "Level Up Lab",
       location: "Torino, IT",
-      description:
-        "Coordinating programming activities and Git workflows on a Unity game project. Hands-on development and technical mentoring, with experience tutoring beginners in Unreal Engine 5.",
+      description: t("experience.levelup.desc"),
     },
     {
       period: "Feb 2023 — Aug 2023",
       role: "AR Developer — Internship",
       company: "CS Group",
       location: "Toulouse, FR",
-      description:
-        "Working on HoloLens 2 applications using Unreal Engine (C++ & Blueprints) for a thesis project on emergency management. Developed new features for an enterprise AR platform within European projects.",
+      description: t("experience.cs.desc"),
     },
     {
       period: "Sep 2021 — Jul 2022",
       role: "IT assistant",
       company: "Collegio Einaudi",
       location: "Turin, IT",
+      description: t("experience.collegio.desc"),
     },
   ]
 
@@ -43,7 +43,7 @@ export default function Experience() {
       <Reveal>
 
         <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-20">
-          Experiences
+          {t("experience.title")}
         </h2>
 
       </Reveal>

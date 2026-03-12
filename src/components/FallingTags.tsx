@@ -203,13 +203,13 @@ export default function FallingTags({ tags, className }: Props) {
   return (
     <div
       ref={containerRef}
-      className={`relative w-full h-full ${className ?? ""}`}
+      className={`relative w-full h-full overflow-x-hidden max-w-full ${className ?? ""}`}
       style={{ touchAction: "pan-y" }}
     >
       {tags.map((t, i) => {
         const base =
           t.variant === "circle"
-            ? "h-14 w-14 rounded-full bg-black text-white flex items-center justify-center"
+            ? "falling-tag-circle h-14 w-14 rounded-full bg-black text-white flex items-center justify-center"
             : "px-6 py-3 rounded-full border border-black/20 bg-white text-black"
 
         const circleText =

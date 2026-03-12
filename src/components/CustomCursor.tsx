@@ -25,7 +25,7 @@ export default function CustomCursor() {
   return (
 
     <div
-      className="fixed w-6 h-6 border border-black rounded-full pointer-events-none z-50 will-change-transform"
+      className="custom-cursor-ring fixed w-6 h-6 border border-black rounded-full pointer-events-none z-50 will-change-transform"
       style={{
         left: pos.x,
         top: pos.y,

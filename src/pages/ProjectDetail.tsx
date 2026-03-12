@@ -1,0 +1,175 @@
+import { useMemo, useState } from "react"
+import { Link, useParams } from "react-router-dom"
+import HorizontalScrollHint from "../components/HorizontalScrollHint"
+import ImageLightbox from "../components/ImageLightbox"
+import { projects } from "../data/projects"
+import { useI18n } from "../i18n"
+
+export default function ProjectDetail() {
+  const { t } = useI18n()
+  const { slug } = useParams()
+  const index = useMemo(() => projects.findIndex((p) => p.slug === slug), [slug])
+  const project = index >= 0 ? projects[index] : null
+  const previous = index > 0 ? projects[index - 1] : null
+  const next = index >= 0 && index < projects.length - 1 ? projects[index + 1] : null
+
+  const [activeSrc, setActiveSrc] = useState<string | null>(null)
+
+  if (!project) {
+    return (
+      <main className="w-full px-6 sm:px-10 pt-24 pb-24">
+        <div className="max-w-5xl mx-auto">
+          <div className="flex items-center justify-between text-xs sm:text-sm tracking-wide">
+            <Link
+              to="/"
+              className="rounded-full border border-black/10 bg-white/70 backdrop-blur-md px-3 py-2 text-black/70 hover:text-black transition-colors"
+            >
+              {t("project.back")}
+            </Link>
+          </div>
+
+          <h1 className="mt-10 text-3xl sm:text-5xl font-bold tracking-tight">{t("project.notFound")}</h1>
+        </div>
+      </main>
+    )
+  }
+
+  const topA = project.images[0] ?? project.image
+  const topB = project.images[1] ?? project.image
+  const rest = project.images.slice(2)
+
+  return (
+    <main className="w-full px-6 sm:px-10 pt-24 pb-24">
+      <div className="max-w-6xl mx-auto">
+        <div className="flex items-center justify-between text-xs sm:text-sm tracking-wide">
+          <Link
+            to="/"
+            className="project-nav-pill ui-pill rounded-full border backdrop-blur-md px-3 py-2 shadow-sm"
+          >
+            {t("project.back")}
+          </Link>
+
+          <div className="flex items-center gap-2 sm:gap-3">
+            {previous ? (
+              <Link
+                to={`/projects/${previous.slug}`}
+                className="project-nav-pill ui-pill rounded-full border backdrop-blur-md px-3 py-2 shadow-sm"
+              >
+                {t("project.prev")}
+              </Link>
+            ) : null}
+
+            {next ? (
+              <Link
+                to={`/projects/${next.slug}`}
+                className="project-nav-pill ui-pill rounded-full border backdrop-blur-md px-3 py-2 shadow-sm"
+              >
+                {t("project.next")}
+              </Link>
+            ) : null}
+          </div>
+        </div>
+
+        <div className="mt-16 grid lg:grid-cols-12 gap-10">
+          <div className="lg:col-span-7">
+            <h1 className="text-4xl sm:text-6xl font-bold tracking-tight">{project.title}</h1>
+          </div>
+
+          <div className="lg:col-span-5">
+            <div className="text-[11px] uppercase tracking-widest text-black/40">Overview</div>
+            <p className="mt-3 text-sm sm:text-base text-black/70 leading-relaxed">
+              {project.overview ?? "—"}
+            </p>
+          </div>
+        </div>
+
+        <div className="mt-12 grid grid-cols-2 lg:grid-cols-4 gap-8 text-sm">
+          <div>
+            <div className="text-[11px] uppercase tracking-widest text-black/40">Year</div>
+            <div className="mt-2 text-black/70">{project.year}</div>
+          </div>
+          <div>
+            <div className="text-[11px] uppercase tracking-widest text-black/40">Role</div>
+            <div className="mt-2 text-black/70">{project.role ?? "—"}</div>
+          </div>
+          <div className="col-span-2">
+            <div className="text-[11px] uppercase tracking-widest text-black/40">Services</div>
+            <div className="mt-2 text-black/70">
+              {project.services?.length ? project.services.join(" · ") : "—"}
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-16 grid lg:grid-cols-2 gap-10">
+          {[topA, topB].map((src, i) => (
+            <button
+              key={`${src}-${i}`}
+              type="button"
+              onClick={() => setActiveSrc(src)}
+              className="group relative w-full overflow-hidden rounded-2xl border border-black/10 bg-white"
+            >
+              <div className="aspect-[16/10] w-full">
+                <img
+                  src={src}
+                  alt={`${project.title} image ${i + 1}`}
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                  loading="lazy"
+                />
+              </div>
+              <div className="pointer-events-none absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors" />
+            </button>
+          ))}
+        </div>
+
+        <div className="mt-20 grid lg:grid-cols-2 gap-16">
+          <div>
+            <h2 className="text-3xl sm:text-5xl font-bold tracking-tight">{t("project.about")}</h2>
+            <p className="mt-6 text-sm sm:text-base text-black/70 leading-relaxed max-w-prose">
+              {project.about ?? "—"}
+            </p>
+          </div>
+
+          <div>
+            <h2 className="text-3xl sm:text-5xl font-bold tracking-tight">{t("project.goal")}</h2>
+            <p className="mt-6 text-sm sm:text-base text-black/70 leading-relaxed max-w-prose">
+              {project.goal ?? "—"}
+            </p>
+          </div>
+        </div>
+
+        {rest.length ? (
+          <div className="mt-24">
+            <HorizontalScrollHint className="fade-x-scroll hide-scrollbar flex flex-nowrap gap-6 overflow-x-auto py-2 pl-8 pr-8">
+              {rest.map((src, i) => (
+                <button
+                  key={`${src}-${i}`}
+                  type="button"
+                  onClick={() => setActiveSrc(src)}
+                  className="shrink-0 w-[320px] sm:w-[420px] rounded-2xl overflow-hidden border border-black/10 bg-white"
+                >
+                  <div className="aspect-[16/10] w-full">
+                    <img
+                      src={src}
+                      alt={`${project.title} gallery ${i + 3}`}
+                      className="h-full w-full object-cover"
+                      loading="lazy"
+                    />
+                  </div>
+                </button>
+              ))}
+            </HorizontalScrollHint>
+          </div>
+        ) : null}
+      </div>
+
+      {activeSrc ? (
+        <ImageLightbox
+          src={activeSrc}
+          alt={`${project.title} fullscreen`}
+          onClose={() => setActiveSrc(null)}
+        />
+      ) : null}
+    </main>
+  )
+}
+
