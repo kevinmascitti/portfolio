@@ -5,6 +5,21 @@ import ImageLightbox from "../components/ImageLightbox"
 import { projects } from "../data/projects"
 import { useI18n } from "../i18n"
 
+function NavArrow({ direction }: { direction: "left" | "right" }) {
+  const isLeft = direction === "left"
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path
+        d={isLeft ? "M14 7l-5 5 5 5" : "M10 7l5 5-5 5"}
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  )
+}
+
 export default function ProjectDetail() {
   const { t } = useI18n()
   const { slug } = useParams()
@@ -22,7 +37,7 @@ export default function ProjectDetail() {
           <div className="flex items-center justify-between text-xs sm:text-sm tracking-wide">
             <Link
               to="/"
-              className="rounded-full border border-black/10 bg-white/70 backdrop-blur-md px-3 py-2 text-black/70 hover:text-black transition-colors"
+              className="project-nav-pill ui-pill rounded-full border backdrop-blur-md px-3 py-2 shadow-sm"
             >
               {t("project.back")}
             </Link>
@@ -53,18 +68,22 @@ export default function ProjectDetail() {
             {previous ? (
               <Link
                 to={`/projects/${previous.slug}`}
-                className="project-nav-pill ui-pill rounded-full border backdrop-blur-md px-3 py-2 shadow-sm"
+                className="project-nav-pill ui-pill rounded-full border backdrop-blur-md shadow-sm flex items-center justify-center w-10 h-10 sm:w-auto sm:h-auto sm:px-3 sm:py-2"
+                aria-label={t("project.prev")}
               >
-                {t("project.prev")}
+                <span className="sm:hidden" aria-hidden><NavArrow direction="left" /></span>
+                <span className="hidden sm:inline">{t("project.prev")}</span>
               </Link>
             ) : null}
 
             {next ? (
               <Link
                 to={`/projects/${next.slug}`}
-                className="project-nav-pill ui-pill rounded-full border backdrop-blur-md px-3 py-2 shadow-sm"
+                className="project-nav-pill ui-pill rounded-full border backdrop-blur-md shadow-sm flex items-center justify-center w-10 h-10 sm:w-auto sm:h-auto sm:px-3 sm:py-2"
+                aria-label={t("project.next")}
               >
-                {t("project.next")}
+                <span className="sm:hidden" aria-hidden><NavArrow direction="right" /></span>
+                <span className="hidden sm:inline">{t("project.next")}</span>
               </Link>
             ) : null}
           </div>
