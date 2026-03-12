@@ -36,7 +36,7 @@ export default function HorizontalScrollHint({ className, children }: Props) {
   const scrollByDir = (direction: "left" | "right") => {
     const el = ref.current
     if (!el) return
-    const amount = Math.max(220, Math.floor(el.clientWidth * 0.9))
+    const amount = Math.max(220, Math.floor(el.clientWidth * 0.8))
     el.scrollBy({ left: direction === "left" ? -amount : amount, behavior: "smooth" })
   }
 
