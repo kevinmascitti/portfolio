@@ -39,7 +39,7 @@ export default function Education() {
       <HorizontalScrollHint className="fade-x-scroll hide-scrollbar flex flex-nowrap gap-10 lg:gap-14 overflow-x-auto py-2 pl-8 pr-8">
         {items.map((item) => (
           <Reveal key={`${item.period}-${item.institution}`} offsetY={0}>
-            <div className="shrink-0 w-[320px] sm:w-[380px] lg:w-[420px]">
+            <div className="shrink-0 w-[320px] sm:w-[380px] lg:w-[380px]">
               <p className="text-sm sm:text-base text-gray-400 mb-1">
                 {item.period}
               </p>

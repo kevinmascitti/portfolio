@@ -54,7 +54,7 @@ export default function Experience() {
 
           <Reveal key={`${item.period}-${item.company}`} offsetY={0}>
 
-            <div className="shrink-0 w-[320px] sm:w-[380px] lg:w-[420px]">
+            <div className="shrink-0 w-[320px] sm:w-[380px] lg:w-[380px]">
 
                 <p className="text-sm sm:text-base text-gray-400 mb-4">
                   {item.period}
