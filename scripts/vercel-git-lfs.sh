@@ -43,6 +43,8 @@ ensure_git_lfs
 
 echo "git version: $(git --version)"
 echo "git lfs version: $(git lfs version)"
+echo "pwd: ${PWD}"
+echo "vercel: ${VERCEL:-0}"
 
 # Evita prompt interattivi (in CI bloccherebbero la build)
 export GIT_TERMINAL_PROMPT=0
@@ -57,10 +59,20 @@ if [[ -n "${token}" ]]; then
   fi
 fi
 
-git lfs install --local
+echo "Installing Git LFS hooks (local)..."
+if ! git lfs install --local; then
+  echo "WARN: git lfs install --local fallito (continuo comunque)."
+fi
 
-echo "Pulling Git LFS objects..."
-if ! git lfs pull --include="*.mp4,*.mov" --exclude=""; then
+echo "Fetching Git LFS objects..."
+if ! git lfs fetch --all; then
+  echo "ERROR: git lfs fetch fallito."
+  git lfs logs last || true
+  exit 1
+fi
+
+echo "Checking out Git LFS objects into working tree..."
+if ! git lfs checkout; then
   echo "ERROR: git lfs pull fallito."
   echo "Suggerimento: se vedi 401/403, su Vercel potrebbe servire un token GitHub con permessi di lettura su LFS."
   git lfs logs last || true
