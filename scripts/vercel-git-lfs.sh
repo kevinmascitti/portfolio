@@ -5,8 +5,15 @@ set -euo pipefail
 # Se builda con i "pointer" (file di testo), i video risultano rotti in produzione.
 #
 # Nota: lo eseguiamo SOLO su Vercel (o se forzato), per evitare side-effect in locale.
+# Su alcuni build Vercel la variabile `VERCEL` non è sempre impostata, quindi
+# controlliamo anche variabili tipiche del build Git su Vercel.
 
-if [[ -z "${VERCEL:-}" && -z "${FORCE_LFS_PULL:-}" ]]; then
+is_vercel_build=0
+if [[ -n "${VERCEL:-}" || -n "${VERCEL_ENV:-}" || -n "${VERCEL_GIT_COMMIT_SHA:-}" || -n "${VERCEL_GIT_PROVIDER:-}" ]]; then
+  is_vercel_build=1
+fi
+
+if [[ "${is_vercel_build}" != "1" && -z "${FORCE_LFS_PULL:-}" ]]; then
   exit 0
 fi
 
@@ -44,7 +51,7 @@ ensure_git_lfs
 echo "git version: $(git --version)"
 echo "git lfs version: $(git lfs version)"
 echo "pwd: ${PWD}"
-echo "vercel: ${VERCEL:-0}"
+echo "vercel: ${VERCEL:-0}  vercel_env: ${VERCEL_ENV:-}  vercel_sha: ${VERCEL_GIT_COMMIT_SHA:-}"
 
 # Evita prompt interattivi (in CI bloccherebbero la build)
 export GIT_TERMINAL_PROMPT=0
@@ -62,6 +69,12 @@ fi
 echo "Installing Git LFS hooks (local)..."
 if ! git lfs install --local; then
   echo "WARN: git lfs install --local fallito (continuo comunque)."
+fi
+
+first_lfs_line="$(git lfs ls-files 2>/dev/null | head -n 1 || true)"
+if [[ -z "${first_lfs_line}" ]]; then
+  echo "Nessun file tracciato da Git LFS trovato: skip."
+  exit 0
 fi
 
 echo "Fetching Git LFS objects..."
