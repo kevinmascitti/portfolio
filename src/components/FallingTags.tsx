@@ -30,12 +30,11 @@ export default function FallingTags({ tags, className }: Props) {
     const container = containerRef.current
     if (!container) return
 
-    // Warm layout so offsets are measurable before physics creation.
     for (let i = 0; i < tags.length; i++) {
       const el = elRefs.current[i]
       if (el) el.style.visibility = "hidden"
     }
-  }, [tags])
+  }, [])
 
   useEffect(() => {
     const container = containerRef.current
