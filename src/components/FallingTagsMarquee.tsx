@@ -8,8 +8,9 @@ type Props = {
 
 const ROWS = 4
 const STANDARD_DURATION_SEC = 28
-const INERTIA_FRICTION = 0.94
-const VELOCITY_THRESHOLD = 0.15
+const INERTIA_FRICTION = 0.96
+const VELOCITY_THRESHOLD_PX_S = 25
+const VELOCITY_BUFFER_SIZE = 10
 
 function TagPill({ tag }: { tag: Tag }) {
   const isCircle = tag.variant === "circle"
@@ -43,8 +44,7 @@ function MarqueeRow({
   const touchStartXRef = useRef(0)
   const touchStartYRef = useRef(0)
   const touchStartPosRef = useRef(0)
-  const lastTouchXRef = useRef(0)
-  const lastTouchTimeRef = useRef(0)
+  const velocityBufferRef = useRef<{ x: number; t: number }[]>([])
   const dragIsHorizontalRef = useRef<boolean | null>(null)
   const rafRef = useRef<number>(0)
   const lastTRef = useRef(performance.now())
@@ -84,7 +84,7 @@ function MarqueeRow({
         const v = velocityRef.current
         positionRef.current += v * dt
         velocityRef.current = v * INERTIA_FRICTION
-        if (Math.abs(velocityRef.current) < VELOCITY_THRESHOLD) {
+        if (Math.abs(velocityRef.current) < VELOCITY_THRESHOLD_PX_S) {
           modeRef.current = "auto"
           velocityRef.current = 0
         }
@@ -104,8 +104,7 @@ function MarqueeRow({
     touchStartXRef.current = e.touches[0].clientX
     touchStartYRef.current = e.touches[0].clientY
     touchStartPosRef.current = positionRef.current
-    lastTouchXRef.current = e.touches[0].clientX
-    lastTouchTimeRef.current = performance.now()
+    velocityBufferRef.current = []
     dragIsHorizontalRef.current = null
   }, [])
 
@@ -122,18 +121,32 @@ function MarqueeRow({
       e.preventDefault()
     }
     positionRef.current = touchStartPosRef.current + (x - touchStartXRef.current)
-    lastTouchXRef.current = x
-    lastTouchTimeRef.current = performance.now()
+    const t = performance.now()
+    const buf = velocityBufferRef.current
+    buf.push({ x, t })
+    if (buf.length > VELOCITY_BUFFER_SIZE) buf.shift()
     updateTransform()
   }, [updateTransform])
 
   const onTouchEnd = useCallback((e: React.TouchEvent) => {
     if (modeRef.current !== "drag") return
-    const now = performance.now()
-    const dt = (now - lastTouchTimeRef.current) / 1000
-    const dx = e.changedTouches[0].clientX - lastTouchXRef.current
-    const velocity = dt > 0 ? dx / dt : 0
-    velocityRef.current = velocity
+    const releaseX = e.changedTouches[0].clientX
+    const releaseT = performance.now()
+    const buf = velocityBufferRef.current
+    let velocityPxS = 0
+    if (buf.length >= 1) {
+      const last = buf[buf.length - 1]
+      const dtSec = (releaseT - last.t) / 1000
+      const dx = releaseX - last.x
+      if (dtSec > 0.002) velocityPxS = dx / dtSec
+      else if (buf.length >= 2) {
+        const prev = buf[buf.length - 2]
+        const dtSec2 = (last.t - prev.t) / 1000
+        const dx2 = last.x - prev.x
+        if (dtSec2 > 0.001) velocityPxS = dx2 / dtSec2
+      }
+    }
+    velocityRef.current = velocityPxS
     modeRef.current = "inertia"
     setTick((n) => n + 1)
   }, [])
