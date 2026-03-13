@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { useLocation, useNavigate } from "react-router-dom"
 import { motion, AnimatePresence } from "framer-motion"
 import { useI18n, type Lang } from "../i18n"
 
@@ -53,7 +54,9 @@ export default function TopBar() {
   const [theme, setTheme] = useState<Theme>(() => getInitialTheme())
   const [isMobile, setIsMobile] = useState(false)
   const [isVisible, setIsVisible] = useState(true)
-  const { lang, setLang, t } = useI18n()
+  const { lang, t } = useI18n()
+  const navigate = useNavigate()
+  const location = useLocation()
   const [showLangMenu, setShowLangMenu] = useState(false)
 
   useEffect(() => {
@@ -187,7 +190,9 @@ export default function TopBar() {
                             key={code}
                             type="button"
                             onClick={() => {
-                              setLang(code)
+                              const pathname = location.pathname
+                              const rest = /^\/[a-z]{2}(\/.*|$)/.test(pathname) ? pathname.slice(3) : ""
+                              navigate(`/${code}${rest}`)
                               setShowLangMenu(false)
                             }}
                             className="ui-icon overflow-hidden border border-black/20 bg-white text-black shadow-sm shrink-0 pointer-events-auto"

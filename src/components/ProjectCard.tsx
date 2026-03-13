@@ -4,13 +4,12 @@ import { Link } from "react-router-dom"
 
 type Props = {
   project: Project
+  langPrefix: string
 }
 
-export default function ProjectCard({ project }: Props) {
-
+export default function ProjectCard({ project, langPrefix }: Props) {
   return (
-
-    <Link to={`/projects/${project.slug}`} className="block">
+    <Link to={`${langPrefix}/projects/${project.slug}`} className="block">
       <motion.div
         whileHover={{ scale: 1.04 }}
         transition={{ duration: 0.3 }}

@@ -12,25 +12,25 @@ const I18nContext = createContext<I18nContextValue | null>(null)
 
 const translations: Record<Lang, Record<string, string>> = {
   en: {
-    "topbar.role": "Frontend and 3D developer",
-    "topbar.location": "Based in Turin, Italy",
+    "topbar.role": "3D & interactive experiences developer",
+    "topbar.location": "Turin, Italy",
     "topbar.lang.en": "English",
     "topbar.lang.it": "Italian",
     "topbar.lang.fr": "French",
 
     "hero.left":
-      "Hi, I'm Kevin, a software engineer that loves to build modern apps.",
+      "Hi, I'm Kevin, a 3D developer focused on interactive experiences, VR/AR and gamified interfaces.",
     "hero.right":
-      "I create scalable web applications using React, TypeScript and modern cloud technologies.",
+      "I design and build real-time experiences with Unity, Unreal Engine and modern web technologies, where the user experience is at the center.",
 
     "about.title": "About me",
     "about.p1":
-      "I'm Kevin, a software engineer focused on building clean, dependable interfaces that feel fast and intuitive.",
+      "I'm a 3D developer and interaction designer who loves to create visual, playful and immersive experiences.",
     "about.p2":
-      "My work sits between frontend engineering, 3D and interactive experiences, turning ideas into interfaces that are simple to use and solid inside.",
+      "I believe that technology and creativity can intertwine to create unique experiences for the user and I believe that this can have a strong impact on people. I like transforming abstract ideas into something you can actually see and try, interacting with designers and teams until the experience feels intuitive and seamless.",
     "about.p3":
-      "I like collaborating with designers and developers, keeping communication clear and iterating quickly to ship thoughtful products.",
-
+      "During my education and professional experiences, I have gained experience in various projects, from web applications to real-time experiences with Unity and Unreal Engine, passing through the design and development of AR applications on various types of devices and the development of intuitive and fluid interfaces, attentive to accessibility and the needs of the user.",
+    
     "projects.title": "Selected Works",
     "experience.title": "Experiences",
     "education.title": "Education",
@@ -66,25 +66,25 @@ const translations: Record<Lang, Record<string, string>> = {
     "lightbox.close": "Close",
   },
   it: {
-    "topbar.role": "Frontend e sviluppatore 3D",
-    "topbar.location": "Con base a Torino, Italia",
+    "topbar.role": "Sviluppatore 3D e esperienze interattive",
+    "topbar.location": "Torino, Italia",
     "topbar.lang.en": "Inglese",
     "topbar.lang.it": "Italiano",
     "topbar.lang.fr": "Francese",
 
     "hero.left":
-      "Ciao, sono Kevin, uno sviluppatore software che ama creare applicazioni moderne.",
+      "Ciao, sono Kevin, uno sviluppatore 3D focalizzato su esperienze interattive, realtà virtuale/aumentata e gamification.",
     "hero.right":
-      "Progetto interfacce web scalabili usando React, TypeScript e tecnologie cloud moderne.",
+      "Progetto e sviluppo esperienze real‑time con Unity, Unreal e tecnologie web moderne, in cui l'esperienza utente è messa al centro.",
 
     "about.title": "Chi sono",
     "about.p1":
-      "Sono Kevin, un software engineer focalizzato su interfacce pulite e affidabili, che risultino veloci e intuitive da usare.",
+      "Sono un ingegnere del software e uno sviluppatore 3D; mi piace creare esperienze visive, giocose e immersive.",
     "about.p2":
-      "Il mio lavoro vive tra frontend, 3D e esperienze interattive: trasformo idee in interfacce semplici in superficie ma solide all'interno.",
+      "Credo che la tecnologia e la creatività possano intrecciarsi per creare esperienze uniche per l'utente e credo che questo possa avere un forte impatto sulle persone. Mi piace trasformare idee astratte in qualcosa che puoi vedere e provare, interagendo con designer e team finché l'esperienza non risulta intuitiva e fluida.",
     "about.p3":
-      "Mi piace collaborare con designer e sviluppatori, comunicare in modo chiaro e iterare velocemente per arrivare a prodotti curati.",
-
+      "Durante la mia formazione e le mie esperienze professionali, ho maturato esperienza in diversi progetti, da applicazioni web ad esperienze real-time con Unity e Unreal Engine, passando per la progettazione e lo sviluppo di applicazioni AR su diversi tipi di visori e lo sviluppo di interfacce intuitive e fluide, attente all'accessibilità e ai bisogni dell'utente.",
+    
     "projects.title": "Selected Works",
     "experience.title": "Esperienze",
     "education.title": "Formazione",
@@ -95,7 +95,7 @@ const translations: Record<Lang, Record<string, string>> = {
     "contact.github": "GitHub",
 
     "experience.logistics.desc":
-      "Sviluppatore frontend in un team R&D orientato al prodotto, costruendo interfacce con React, JavaScript, HTML e CSS con forte attenzione a UX e architettura frontend.",
+      "Sviluppatore Unity presso Logistics Reply, focalizzato sullo sviluppo di soluzioni di Realtà Aumentata per la logistica su HoloLens 2 e Magic Leap 2. Realizzo demo e proof of concept con Unity, AR Foundation, ARKit e ARCore, presentate nel laboratorio di innovazione Area42. Contribuisco inoltre allo sviluppo dell'architettura e di componenti frontend per un prodotto basato su React e tecnologie web moderne.",
     "experience.levelup.desc":
       "Tech director e game developer su un progetto Unity, coordinando attività di programmazione e flussi Git, supportando il team e curando gameplay e tool.",
     "experience.cs.desc":
@@ -120,25 +120,25 @@ const translations: Record<Lang, Record<string, string>> = {
     "lightbox.close": "Chiudi",
   },
   fr: {
-    "topbar.role": "Développeur frontend et 3D",
-    "topbar.location": "Basé à Turin, Italie",
+    "topbar.role": "Développeur 3D & expériences interactives",
+    "topbar.location": "Turin, Italie",
     "topbar.lang.en": "Anglais",
     "topbar.lang.it": "Italien",
     "topbar.lang.fr": "Français",
 
     "hero.left":
-      "Salut, je suis Kevin, un ingénieur logiciel qui aime créer des applications modernes.",
+      "Salut, je suis Kevin, un développeur 3D focalisé sur les expériences interactives, la VR/AR et la gamification.",
     "hero.right":
-      "Je conçois des applications web évolutives avec React, TypeScript et des technologies cloud modernes.",
+      "Je conçois et développe des expériences temps réel avec Unity, Unreal Engine et des technologies web modernes, où l'expérience utilisateur est mise au centre.",
 
     "about.title": "À propos",
     "about.p1":
-      "Je suis Kevin, un ingénieur logiciel concentré sur des interfaces propres et fiables, rapides et intuitives à utiliser.",
+      "Je suis un développeur 3D et designer d’interaction, passionné par les expériences visuelles, ludiques et immersives.",
     "about.p2":
-      "Mon travail se situe entre frontend, 3D et expériences interactives : je transforme des idées en interfaces simples à utiliser et solides côté technique.",
+      "Je crois que la technologie et la créativité peuvent s'entrecroiser pour créer des expériences uniques pour l'utilisateur et je crois que cela peut avoir un fort impact sur les personnes. Je transforme des idées abstraites en quelque chose que l'on peut voir et essayer, en interagissant avec les designers et les équipes jusqu'à ce que l'expérience soit intuitive et fluide.",
     "about.p3":
-      "J’aime collaborer avec designers et développeurs, communiquer clairement et itérer rapidement pour livrer des produits soignés.",
-
+      "Durant la formation et les expériences professionnelles, j'ai acquis une expérience dans divers projets, des applications web aux expériences temps réel avec Unity et Unreal Engine, passant par la conception et le développement d'applications AR sur divers types de visors et le développement d'interfaces intuitives et fluides, attentif à l'accessibilité et aux besoins de l'utilisateur.",
+    
     "projects.title": "Selected Works",
     "experience.title": "Expériences",
     "education.title": "Formation",

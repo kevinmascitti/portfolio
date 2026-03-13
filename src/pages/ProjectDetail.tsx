@@ -22,7 +22,8 @@ function NavArrow({ direction }: { direction: "left" | "right" }) {
 
 export default function ProjectDetail() {
   const { t } = useI18n()
-  const { slug } = useParams()
+  const { lang, slug } = useParams<{ lang: string; slug: string }>()
+  const langPrefix = lang ? `/${lang}` : "/en"
   const index = useMemo(() => projects.findIndex((p) => p.slug === slug), [slug])
   const project = index >= 0 ? projects[index] : null
   const previous = index > 0 ? projects[index - 1] : null
@@ -36,7 +37,7 @@ export default function ProjectDetail() {
         <div className="max-w-5xl mx-auto">
           <div className="flex items-center justify-between text-xs sm:text-sm tracking-wide">
             <Link
-              to="/"
+              to={langPrefix}
               className="project-nav-pill ui-pill rounded-full border backdrop-blur-md px-3 py-2 shadow-sm"
             >
               {t("project.back")}
@@ -58,7 +59,7 @@ export default function ProjectDetail() {
       <div className="max-w-6xl mx-auto">
         <div className="flex items-center justify-between text-xs sm:text-sm tracking-wide">
           <Link
-            to="/"
+            to={langPrefix}
             className="project-nav-pill ui-pill rounded-full border backdrop-blur-md px-3 py-2 shadow-sm"
           >
             {t("project.back")}
@@ -67,7 +68,7 @@ export default function ProjectDetail() {
           <div className="flex items-center gap-2 sm:gap-3">
             {previous ? (
               <Link
-                to={`/projects/${previous.slug}`}
+                to={`${langPrefix}/projects/${previous.slug}`}
                 className="project-nav-pill ui-pill rounded-full border backdrop-blur-md shadow-sm flex items-center justify-center w-10 h-10 sm:w-auto sm:h-auto sm:px-3 sm:py-2"
                 aria-label={t("project.prev")}
               >
@@ -78,7 +79,7 @@ export default function ProjectDetail() {
 
             {next ? (
               <Link
-                to={`/projects/${next.slug}`}
+                to={`${langPrefix}/projects/${next.slug}`}
                 className="project-nav-pill ui-pill rounded-full border backdrop-blur-md shadow-sm flex items-center justify-center w-10 h-10 sm:w-auto sm:h-auto sm:px-3 sm:py-2"
                 aria-label={t("project.next")}
               >

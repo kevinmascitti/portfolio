@@ -203,8 +203,8 @@ export default function FallingTags({ tags, className }: Props) {
   return (
     <div
       ref={containerRef}
-      className={`relative w-full h-full overflow-x-hidden max-w-full ${className ?? ""}`}
-      style={{ touchAction: "pan-y" }}
+      className={`relative w-full h-full overflow-y-visible max-w-full ${className ?? ""}`}
+      style={{ touchAction: "pan-y", overflowY: "visible" }}
     >
       {tags.map((t, i) => {
         const base =
