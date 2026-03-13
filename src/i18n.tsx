@@ -12,7 +12,7 @@ const I18nContext = createContext<I18nContextValue | null>(null)
 
 const translations: Record<Lang, Record<string, string>> = {
   en: {
-    "topbar.role": "3D & interactive experiences developer",
+    "topbar.role": "3D developer & software engineer",
     "topbar.location": "Turin, Italy",
     "topbar.lang.en": "English",
     "topbar.lang.it": "Italian",
@@ -66,7 +66,7 @@ const translations: Record<Lang, Record<string, string>> = {
     "lightbox.close": "Close",
   },
   it: {
-    "topbar.role": "Sviluppatore 3D e esperienze interattive",
+    "topbar.role": "Sviluppatore 3D e ingegnere del software",
     "topbar.location": "Torino, Italia",
     "topbar.lang.en": "Inglese",
     "topbar.lang.it": "Italiano",
@@ -120,7 +120,7 @@ const translations: Record<Lang, Record<string, string>> = {
     "lightbox.close": "Chiudi",
   },
   fr: {
-    "topbar.role": "Développeur 3D & expériences interactives",
+    "topbar.role": "Développeur 3D & logiciel",
     "topbar.location": "Turin, Italie",
     "topbar.lang.en": "Anglais",
     "topbar.lang.it": "Italien",

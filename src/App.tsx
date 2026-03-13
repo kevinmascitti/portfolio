@@ -14,9 +14,7 @@ import { useI18n, type Lang } from "./i18n"
 const LANGS: Lang[] = ["en", "it", "fr"]
 
 function RedirectToLang() {
-  const stored = typeof window !== "undefined" ? window.localStorage.getItem("lang") : null
-  const to = stored === "it" || stored === "fr" ? `/${stored}` : "/en"
-  return <Navigate to={to} replace />
+  return <Navigate to="/en" replace />
 }
 
 function LangSync({ children }: { children: React.ReactNode }) {
