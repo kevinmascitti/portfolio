@@ -85,6 +85,40 @@
   display: none;
 }
 
+/* Mobile marquee: 4 rows, horizontal scroll, fixed speed */
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.falling-tags-marquee .marquee-row {
+  flex-shrink: 0;
+}
+
+.falling-tags-marquee .marquee-track {
+  animation: marquee-scroll 28s linear infinite;
+  will-change: transform;
+}
+
+.falling-tags-marquee .marquee-track--reverse {
+  animation-direction: reverse;
+}
+
+/* JS-controlled row: no CSS animation */
+.falling-tags-marquee .marquee-track-js {
+  animation: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .falling-tags-marquee .marquee-track {
+    animation: none;
+  }
+}
+
 a {
   font-weight: 500;
   color: inherit;

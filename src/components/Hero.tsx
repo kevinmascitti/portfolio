@@ -1,5 +1,6 @@
 import { motion } from "framer-motion"
 import FallingTags, { type Tag } from "./FallingTags"
+import FallingTagsMarquee from "./FallingTagsMarquee"
 import { useI18n } from "../i18n"
 
 export default function Hero() {
@@ -37,16 +38,19 @@ export default function Hero() {
   return (
 
     <section className="pt-0 sm:pt-24 pb-24 relative">
+      <div className="sm:hidden h-[200px] w-screen -ml-6 sm:ml-0">
+        <FallingTagsMarquee tags={tags} className="w-full h-full" />
+      </div>
       <FallingTags
         tags={tags}
-        className="absolute left-0 right-0 top-0 h-[560px] sm:h-[480px] md:h-[560px] lg:h-[300px] z-20 pointer-events-auto"
+        className="hidden sm:block absolute left-0 right-0 top-0 h-[480px] md:h-[560px] lg:h-[300px] z-20 pointer-events-auto"
       />
 
       <motion.h1
         initial={{ opacity: 0, y: 80 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
-        className="relative z-10 mt-56 sm:mt-16 text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold tracking-tight leading-[0.9]"
+        className="relative z-10 mt-8 sm:mt-16 text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold tracking-tight leading-[0.9]"
       >
         KEVIN
         <br />

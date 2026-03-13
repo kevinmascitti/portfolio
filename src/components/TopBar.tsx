@@ -130,11 +130,11 @@ export default function TopBar() {
 
           <div className="flex-1 hidden sm:block" aria-hidden />
 
-          <div className="flex-1 min-w-0 flex items-start gap-3 pr-14 sm:pr-0 sm:flex-initial sm:min-w-0">
+          <div className="flex-1 min-w-0 flex items-start gap-3 pr-14 sm:pr-0 sm:flex-initial sm:w-[400px] sm:shrink-0">
             <span className={["shrink-0", theme === "dark" ? "text-white/50" : "text-black/50"].join(" ")}>↳</span>
             <div className="leading-tight uppercase min-w-0">
-              <div className={theme === "dark" ? "text-white" : "text-black"}>{t("topbar.role")}</div>
-              <div className={theme === "dark" ? "text-white/50" : "text-black/50"}>{t("topbar.location")}</div>
+              <div className={[theme === "dark" ? "text-white" : "text-black", "truncate"].join(" ")}>{t("topbar.role")}</div>
+              <div className={[theme === "dark" ? "text-white/50" : "text-black/50", "truncate"].join(" ")}>{t("topbar.location")}</div>
             </div>
           </div>
 

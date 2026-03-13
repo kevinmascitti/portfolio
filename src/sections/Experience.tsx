@@ -7,32 +7,32 @@ export default function Experience() {
 
   const items = [
     {
-      period: "Sep 2024 — Now",
-      role: "Software Engineer",
+      periodKey: "experience.logistics.period",
+      roleKey: "experience.logistics.role",
+      locationKey: "experience.logistics.location",
       company: "Logistics Reply",
-      location: "Torino, IT",
-      description: t("experience.logistics.desc"),
+      descKey: "experience.logistics.desc",
     },
     {
-      period: "Mar 2024 — Sep 2024",
-      role: "Tech Director & Game Developer",
+      periodKey: "experience.levelup.period",
+      roleKey: "experience.levelup.role",
+      locationKey: "experience.levelup.location",
       company: "Level Up Lab",
-      location: "Torino, IT",
-      description: t("experience.levelup.desc"),
+      descKey: "experience.levelup.desc",
     },
     {
-      period: "Feb 2023 — Aug 2023",
-      role: "AR Developer — Internship",
+      periodKey: "experience.cs.period",
+      roleKey: "experience.cs.role",
+      locationKey: "experience.cs.location",
       company: "CS Group",
-      location: "Toulouse, FR",
-      description: t("experience.cs.desc"),
+      descKey: "experience.cs.desc",
     },
     {
-      period: "Sep 2021 — Jul 2022",
-      role: "IT assistant",
+      periodKey: "experience.collegio.period",
+      roleKey: "experience.collegio.role",
+      locationKey: "experience.collegio.location",
       company: "Collegio Einaudi",
-      location: "Turin, IT",
-      description: t("experience.collegio.desc"),
+      descKey: "experience.collegio.desc",
     },
   ]
 
@@ -52,26 +52,26 @@ export default function Experience() {
 
         {items.map((item) => (
 
-          <Reveal key={`${item.period}-${item.company}`} offsetY={0}>
+          <Reveal key={`${item.periodKey}-${item.company}`} offsetY={0}>
 
             <div className="shrink-0 w-[320px] sm:w-[380px] lg:w-[380px]">
 
                 <p className="text-sm sm:text-base text-gray-400 mb-4">
-                  {item.period}
+                  {t(item.periodKey)}
                 </p>
 
                 <p className="text-lg sm:text-xl font-medium">
-                  {item.role}
+                  {t(item.roleKey)}
                 </p>
 
                 <p className="text-base text-gray-500">
                   {item.company}{" "}
-                  <span className="text-gray-400">({item.location})</span>
+                  <span className="text-gray-400">({t(item.locationKey)})</span>
                 </p>
 
-                {item.description ? (
+                {item.descKey ? (
                   <p className="mt-4 text-sm sm:text-base text-gray-600 max-w-prose">
-                    {item.description}
+                    {t(item.descKey)}
                   </p>
                 ) : null}
 

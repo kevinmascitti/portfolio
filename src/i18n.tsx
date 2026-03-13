@@ -40,12 +40,24 @@ const translations: Record<Lang, Record<string, string>> = {
     "contact.linkedin": "LinkedIn",
     "contact.github": "GitHub",
 
+    "experience.logistics.period": "Sep 2024 — Now",
+    "experience.logistics.role": "Software Engineer",
+    "experience.logistics.location": "Turin, IT",
     "experience.logistics.desc":
-      "Frontend developer in an R&D team focused on product development, building interfaces with React, JavaScript, HTML and CSS, with strong attention to UX and frontend architecture.",
+      "Unity developer at Logistics Reply, focused on building Augmented Reality solutions for logistics on HoloLens 2 and Magic Leap 2. I create demos and proof of concepts with Unity, AR Foundation, ARKit and ARCore, presented to clients within the Area42 innovation lab. I also contribute to the frontend architecture and components of a product based on React and modern web technologies.",
+    "experience.levelup.period": "Mar 2024 — Sep 2024",
+    "experience.levelup.role": "Tech Director & Game Developer",
+    "experience.levelup.location": "Turin, IT",
     "experience.levelup.desc":
-      "Tech director and game developer on a Unity project, coordinating programming activities and Git workflows, mentoring teammates and taking care of gameplay and tools.",
+      "Technical Director for a team of 7 on a Unity video game project. I supervised Git workflows, coordinated the programming side and actively contributed as a game programmer. The project is \"The Arise of Cosmos\", an action/adventure game available on itch.io. I also tutored students new to game development, supporting them with Unreal Engine 5.",
+    "experience.cs.period": "Feb 2023 — Aug 2023",
+    "experience.cs.role": "AR Developer — Internship",
+    "experience.cs.location": "Toulouse, FR",
     "experience.cs.desc":
       "AR developer on HoloLens 2 applications using Unreal Engine (C++ & Blueprints), working on an emergency management thesis project and features for an enterprise AR platform.",
+    "experience.collegio.period": "Sep 2021 — Jul 2022",
+    "experience.collegio.role": "IT Assistant",
+    "experience.collegio.location": "Turin, IT",
     "experience.collegio.desc":
       "Network and IT assistant in a student residence: managing the residents database and accounts, configuring new users and handling devices and network access.",
 
@@ -94,12 +106,24 @@ const translations: Record<Lang, Record<string, string>> = {
     "contact.linkedin": "LinkedIn",
     "contact.github": "GitHub",
 
+    "experience.logistics.period": "Set 2024 — Oggi",
+    "experience.logistics.role": "Software Engineer",
+    "experience.logistics.location": "Torino, IT",
     "experience.logistics.desc":
       "Sviluppatore Unity presso Logistics Reply, focalizzato sullo sviluppo di soluzioni di Realtà Aumentata per la logistica su HoloLens 2 e Magic Leap 2. Realizzo demo e proof of concept con Unity, AR Foundation, ARKit e ARCore, presentate nel laboratorio di innovazione Area42. Contribuisco inoltre allo sviluppo dell'architettura e di componenti frontend per un prodotto basato su React e tecnologie web moderne.",
+    "experience.levelup.period": "Mar 2024 — Set 2024",
+    "experience.levelup.role": "Tech Director e Game Developer",
+    "experience.levelup.location": "Torino, IT",
     "experience.levelup.desc":
-      "Tech director e game developer su un progetto Unity, coordinando attività di programmazione e flussi Git, supportando il team e curando gameplay e tool.",
+      "Technical Director per un team di 7 persone su un videogioco in Unity. Mi sono occupato della gestione dei flussi Git, del coordinamento della parte di programmazione e ho contribuito attivamente come game programmer. Il progetto è \"The Arise of Cosmos\", un action/adventure disponibile su itch.io. Ho inoltre fatto da tutor a studenti alle prime armi con il game development, supportandoli con Unreal Engine 5.",
+    "experience.cs.period": "Feb 2023 — Ago 2023",
+    "experience.cs.role": "Sviluppatore AR — Tirocinio",
+    "experience.cs.location": "Tolosa, FR",
     "experience.cs.desc":
       "Sviluppatore AR su applicazioni HoloLens 2 con Unreal Engine (C++ e Blueprints), per una tesi sulla gestione delle emergenze e funzionalità per una piattaforma AR enterprise.",
+    "experience.collegio.period": "Set 2021 — Lug 2022",
+    "experience.collegio.role": "Assistente IT",
+    "experience.collegio.location": "Torino, IT",
     "experience.collegio.desc":
       "Assistente di rete e IT in collegio: gestione del database dei collegiali e degli account, creazione di nuovi utenti e gestione dei dispositivi e dell’accesso alla rete.",
 
@@ -148,12 +172,24 @@ const translations: Record<Lang, Record<string, string>> = {
     "contact.linkedin": "LinkedIn",
     "contact.github": "GitHub",
 
+    "experience.logistics.period": "Sept 2024 — Présent",
+    "experience.logistics.role": "Ingénieur logiciel",
+    "experience.logistics.location": "Turin, Italie",
     "experience.logistics.desc":
-      "Développeur frontend dans une équipe R&D orientée produit, construisant des interfaces avec React, JavaScript, HTML et CSS, avec une forte attention portée à l’UX et à l’architecture frontend.",
+      "Développeur Unity chez Logistics Reply, focalisé sur le développement de solutions de Réalité Augmentée pour la logistique sur HoloLens 2 et Magic Leap 2. Je réalise des démos et proof of concept avec Unity, AR Foundation, ARKit et ARCore, présentées aux clients dans le laboratoire d’innovation Area42. Je contribue également à l’architecture frontend et aux composants d’un produit basé sur React et des technologies web modernes.",
+    "experience.levelup.period": "Mar 2024 — Sept 2024",
+    "experience.levelup.role": "Tech Director et Game Developer",
+    "experience.levelup.location": "Turin, Italie",
     "experience.levelup.desc":
-      "Tech director et game developer sur un projet Unity, coordination de l’équipe de programmation et des workflows Git, mentorat et travail sur le gameplay et les outils.",
+      "Technical Director pour une équipe de 7 personnes sur un jeu vidéo en Unity. J’ai supervisé les workflows Git, coordonné la partie programmation et contribué activement en tant que game programmer. Le projet s’appelle \"The Arise of Cosmos\", un action/adventure disponible sur itch.io. J’ai aussi été tuteur pour des étudiants découvrant le game development, en les accompagnant sur Unreal Engine 5.",
+    "experience.cs.period": "Fév 2023 — Août 2023",
+    "experience.cs.role": "Développeur AR — Stage",
+    "experience.cs.location": "Toulouse, France",
     "experience.cs.desc":
       "Développeur AR sur des applications HoloLens 2 avec Unreal Engine (C++ et Blueprints), pour un mémoire sur la gestion des urgences et des fonctionnalités pour une plateforme AR entreprise.",
+    "experience.collegio.period": "Sept 2021 — Juil 2022",
+    "experience.collegio.role": "Assistant IT",
+    "experience.collegio.location": "Turin, Italie",
     "experience.collegio.desc":
       "Assistant réseau et IT dans une résidence étudiante : gestion de la base de données des résidents et des comptes, création de nouveaux utilisateurs et gestion des appareils et de l’accès réseau.",
 
