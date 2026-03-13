@@ -72,7 +72,7 @@ export default function CustomCursor() {
 
   return (
     <div
-      className={`custom-cursor-ring fixed w-6 h-6 border rounded-full pointer-events-none z-50 will-change-transform ${
+      className={`custom-cursor-ring fixed w-6 h-6 border rounded-full pointer-events-none z-[100] will-change-transform ${
         hover ? "custom-cursor-ring--hover" : "border border-black"
       }`}
       style={{

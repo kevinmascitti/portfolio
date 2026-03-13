@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { useLocation, useNavigate } from "react-router-dom"
 import { motion, AnimatePresence } from "framer-motion"
 import { useI18n, type Lang } from "../i18n"
@@ -58,6 +58,22 @@ export default function TopBar() {
   const navigate = useNavigate()
   const location = useLocation()
   const [showLangMenu, setShowLangMenu] = useState(false)
+  const langMenuRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if (!showLangMenu) return
+    const onPointerDown = (e: MouseEvent | TouchEvent) => {
+      const target = e.target as Node
+      if (langMenuRef.current?.contains(target)) return
+      setShowLangMenu(false)
+    }
+    document.addEventListener("mousedown", onPointerDown)
+    document.addEventListener("touchstart", onPointerDown)
+    return () => {
+      document.removeEventListener("mousedown", onPointerDown)
+      document.removeEventListener("touchstart", onPointerDown)
+    }
+  }, [showLangMenu])
 
   useEffect(() => {
     let lastY = window.scrollY
@@ -141,7 +157,7 @@ export default function TopBar() {
           <div className="flex-1 hidden sm:block" aria-hidden />
 
           <div className="flex items-center gap-2 absolute right-0 top-1/2 -translate-y-1/2 sm:static sm:translate-y-0">
-            <div className="relative">
+            <div ref={langMenuRef} className="relative">
               <button
                 type="button"
                 aria-label={

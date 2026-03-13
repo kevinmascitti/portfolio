@@ -29,9 +29,9 @@ const translations: Record<Lang, Record<string, string>> = {
     "about.p2":
       "I believe that technology and creativity can intertwine to create unique experiences for the user and I believe that this can have a strong impact on people. I like transforming abstract ideas into something you can actually see and try, interacting with designers and teams until the experience feels intuitive and seamless.",
     "about.p3":
-      "During my education and professional experiences, I have gained experience in various projects, from web applications to real-time experiences with Unity and Unreal Engine, passing through the design and development of AR applications on various types of devices and the development of intuitive and fluid interfaces, attentive to accessibility and the needs of the user.",
+      "During my education and professional experiences, I have developed skills through various projects, from web applications to real-time experiences with Unity and Unreal Engine, passing through the design and development of AR applications on various types of devices and the development of intuitive and fluid interfaces, attentive to accessibility and the needs of the user.",
     
-    "projects.title": "Selected Works",
+    "projects.title": "Works",
     "experience.title": "Experiences",
     "education.title": "Education",
     "contact.title": "LET'S GET IN TOUCH",
@@ -95,12 +95,12 @@ const translations: Record<Lang, Record<string, string>> = {
     "about.p2":
       "Credo che la tecnologia e la creatività possano intrecciarsi per creare esperienze uniche per l'utente e credo che questo possa avere un forte impatto sulle persone. Mi piace trasformare idee astratte in qualcosa che puoi vedere e provare, interagendo con designer e team finché l'esperienza non risulta intuitiva e fluida.",
     "about.p3":
-      "Durante la mia formazione e le mie esperienze professionali, ho maturato esperienza in diversi progetti, da applicazioni web ad esperienze real-time con Unity e Unreal Engine, passando per la progettazione e lo sviluppo di applicazioni AR su diversi tipi di visori e lo sviluppo di interfacce intuitive e fluide, attente all'accessibilità e ai bisogni dell'utente.",
+      "Durante la mia formazione e le mie esperienze professionali, ho sviluppato competenze attraverso diversi progetti, da applicazioni web ad esperienze real-time con Unity e Unreal Engine, passando per la progettazione e lo sviluppo di applicazioni AR su diversi tipi di visori e lo sviluppo di interfacce intuitive e fluide, attente all'accessibilità e ai bisogni dell'utente.",
     
-    "projects.title": "Selected Works",
+    "projects.title": "Progetti",
     "experience.title": "Esperienze",
     "education.title": "Formazione",
-    "contact.title": "LET'S GET IN TOUCH",
+    "contact.title": "CONTATTAMI",
 
     "contact.email": "Email",
     "contact.linkedin": "LinkedIn",
@@ -161,14 +161,14 @@ const translations: Record<Lang, Record<string, string>> = {
     "about.p2":
       "Je crois que la technologie et la créativité peuvent s'entrecroiser pour créer des expériences uniques pour l'utilisateur et je crois que cela peut avoir un fort impact sur les personnes. Je transforme des idées abstraites en quelque chose que l'on peut voir et essayer, en interagissant avec les designers et les équipes jusqu'à ce que l'expérience soit intuitive et fluide.",
     "about.p3":
-      "Durant la formation et les expériences professionnelles, j'ai acquis une expérience dans divers projets, des applications web aux expériences temps réel avec Unity et Unreal Engine, passant par la conception et le développement d'applications AR sur divers types de visors et le développement d'interfaces intuitives et fluides, attentif à l'accessibilité et aux besoins de l'utilisateur.",
+      "Durant la formation et les expériences professionnelles, j'ai acquis compétences grâce à divers projets, des applications web aux expériences temps réel avec Unity et Unreal Engine, passant par la conception et le développement d'applications AR sur divers types de visors et le développement d'interfaces intuitives et fluides, attentif à l'accessibilité et aux besoins de l'utilisateur.",
     
-    "projects.title": "Selected Works",
+    "projects.title": "Projets",
     "experience.title": "Expériences",
     "education.title": "Formation",
-    "contact.title": "LET'S GET IN TOUCH",
+    "contact.title": "CONTACTEZ-MOI",
 
-    "contact.email": "Email",
+    "contact.email": "Courriel",
     "contact.linkedin": "LinkedIn",
     "contact.github": "GitHub",
 
