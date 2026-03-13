@@ -157,6 +157,17 @@ body {
   border-color: rgba(255, 255, 255, 0.9) !important;
 }
 
+.custom-cursor-ring {
+  transition: transform 0.2s ease-out, border-color 0.2s ease-out;
+}
+.custom-cursor-ring--hover {
+  border-color: var(--color-secondary) !important;
+  border-width: 4px;
+}
+[data-theme="dark"] .custom-cursor-ring--hover {
+  border-color: var(--color-secondary) !important;
+}
+
 [data-theme="dark"] .falling-tag-circle {
   background-color: #ffffff !important;
   color: #000000 !important;

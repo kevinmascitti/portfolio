@@ -227,7 +227,7 @@ export default function FallingTags({ tags, className }: Props) {
             ref={(node) => {
               elRefs.current[i] = node
             }}
-            className={`absolute left-0 top-0 select-none pointer-events-none ${base} shadow-sm`}
+            className={`falling-tag absolute left-0 top-0 select-none pointer-events-none ${base} shadow-sm`}
             style={{ transform: "translate3d(-9999px,-9999px,0)", visibility: "hidden" }}
           >
             {inner}
