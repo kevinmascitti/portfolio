@@ -18,7 +18,8 @@ import ConnectingNature6 from "../pages/images/ConnectingNature6.jpg"
 import ConnectingNature7 from "../pages/images/ConnectingNature7.jpg"
 import ConnectingNature8 from "../pages/images/ConnectingNature8.jpg"
 
-// Outer Words
+// Outer Words (video + images 1–3)
+import OuterWordsMp4 from "../pages/images/OuterWords.mp4"
 import OuterWords1 from "../pages/images/OuterWords1.jpg"
 import OuterWords2 from "../pages/images/OuterWords2.jpg"
 import OuterWords3 from "../pages/images/OuterWords3.jpg"
@@ -69,6 +70,7 @@ export const projectAssets = {
     image: ConnectingNature1 as string,
   },
   "outer-words": {
+    video: OuterWordsMp4 as string,
     images: [OuterWords1, OuterWords2, OuterWords3] as string[],
     image: OuterWords1 as string,
   },

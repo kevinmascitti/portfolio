@@ -60,6 +60,7 @@ const projectsList: Project[] = [
     goalKey: "project.outer-words.goal",
     roleKey: "project.outer-words.role",
     servicesKey: "project.outer-words.services",
+    video: projectAssets["outer-words"].video,
     images: projectAssets["outer-words"].images,
   },
 
