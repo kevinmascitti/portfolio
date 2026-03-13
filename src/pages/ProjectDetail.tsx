@@ -50,9 +50,11 @@ export default function ProjectDetail() {
     )
   }
 
-  const topA = project.images[0] ?? project.image
-  const topB = project.images[1] ?? project.image
-  const rest = project.images.slice(2)
+  const hasVideo = Boolean(project.video)
+  const topImages = hasVideo ? [] : [project.images[0] ?? project.image, project.images[1] ?? project.image].filter(Boolean) as string[]
+  const rest = hasVideo ? project.images : project.images.slice(2)
+
+  const isVideoUrl = (src: string) => /\.(mp4|mov|webm)(\?|$)/i.test(src)
 
   return (
     <main className="w-full px-6 sm:px-10 pt-24 pb-24">
@@ -92,13 +94,13 @@ export default function ProjectDetail() {
 
         <div className="mt-16 grid lg:grid-cols-12 gap-10">
           <div className="lg:col-span-7">
-            <h1 className="text-4xl sm:text-6xl font-bold tracking-tight">{project.title}</h1>
+            <h1 className="text-4xl sm:text-6xl font-bold tracking-tight">{t(project.titleKey)}</h1>
           </div>
 
           <div className="lg:col-span-5">
             <div className="text-[11px] uppercase tracking-widest text-black/40">Overview</div>
             <p className="mt-3 text-sm sm:text-base text-black/70 leading-relaxed">
-              {project.overview ?? "—"}
+              {t(project.overviewKey)}
             </p>
           </div>
         </div>
@@ -110,49 +112,71 @@ export default function ProjectDetail() {
           </div>
           <div>
             <div className="text-[11px] uppercase tracking-widest text-black/40">Role</div>
-            <div className="mt-2 text-black/70">{project.role ?? "—"}</div>
+            <div className="mt-2 text-black/70">{t(project.roleKey)}</div>
           </div>
           <div className="col-span-2">
-            <div className="text-[11px] uppercase tracking-widest text-black/40">Services</div>
-            <div className="mt-2 text-black/70">
-              {project.services?.length ? project.services.join(" · ") : "—"}
-            </div>
+            <div className="text-[11px] uppercase tracking-widest text-black/40">{t("project.labelFocus")}</div>
+            <div className="mt-2 text-black/70">{t(project.servicesKey)}</div>
           </div>
         </div>
 
         <div className="mt-16 grid lg:grid-cols-2 gap-10">
-          {[topA, topB].map((src, i) => (
-            <button
-              key={`${src}-${i}`}
-              type="button"
-              onClick={() => setActiveSrc(src)}
-              className="group relative w-full overflow-hidden rounded-2xl border border-black/10 bg-white"
-            >
-              <div className="aspect-[16/10] w-full">
-                <img
-                  src={src}
-                  alt={`${project.title} image ${i + 1}`}
-                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                  loading="lazy"
-                />
-              </div>
-              <div className="pointer-events-none absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors" />
-            </button>
-          ))}
+          {hasVideo ? (
+            <div className="lg:col-span-2 w-full overflow-hidden rounded-2xl border border-black/10 bg-black">
+              <video
+                src={project.video}
+                controls
+                playsInline
+                className="w-full aspect-video object-contain"
+                aria-label={`${t(project.titleKey)} video`}
+              />
+            </div>
+          ) : (
+            topImages.map((src, i) => (
+              <button
+                key={`${src}-${i}`}
+                type="button"
+                onClick={() => !isVideoUrl(src) && setActiveSrc(src)}
+                className="group relative w-full overflow-hidden rounded-2xl border border-black/10 bg-white"
+              >
+                <div className="aspect-[16/10] w-full">
+                  {isVideoUrl(src) ? (
+                    <video
+                      src={src}
+                      controls
+                      playsInline
+                      className="h-full w-full object-cover"
+                      onClick={(e) => e.stopPropagation()}
+                    />
+                  ) : (
+                    <img
+                      src={src}
+                      alt={`${t(project.titleKey)} image ${i + 1}`}
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                      loading="lazy"
+                    />
+                  )}
+                </div>
+                {!isVideoUrl(src) && (
+                  <div className="pointer-events-none absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors" />
+                )}
+              </button>
+            ))
+          )}
         </div>
 
         <div className="mt-20 grid lg:grid-cols-2 gap-16">
           <div>
             <h2 className="text-3xl sm:text-5xl font-bold tracking-tight">{t("project.about")}</h2>
             <p className="mt-6 text-sm sm:text-base text-black/70 leading-relaxed max-w-prose">
-              {project.about ?? "—"}
+              {t(project.aboutKey)}
             </p>
           </div>
 
           <div>
             <h2 className="text-3xl sm:text-5xl font-bold tracking-tight">{t("project.goal")}</h2>
             <p className="mt-6 text-sm sm:text-base text-black/70 leading-relaxed max-w-prose">
-              {project.goal ?? "—"}
+              {t(project.goalKey)}
             </p>
           </div>
         </div>
@@ -160,23 +184,39 @@ export default function ProjectDetail() {
         {rest.length ? (
           <div className="mt-24">
             <HorizontalScrollHint className="fade-x-scroll hide-scrollbar flex flex-nowrap gap-6 overflow-x-auto py-2 pl-8 pr-8">
-              {rest.map((src, i) => (
-                <button
-                  key={`${src}-${i}`}
-                  type="button"
-                  onClick={() => setActiveSrc(src)}
-                  className="shrink-0 w-[320px] sm:w-[420px] rounded-2xl overflow-hidden border border-black/10 bg-white"
-                >
-                  <div className="aspect-[16/10] w-full">
-                    <img
-                      src={src}
-                      alt={`${project.title} gallery ${i + 3}`}
-                      className="h-full w-full object-cover"
-                      loading="lazy"
-                    />
+              {rest.map((src, i) =>
+                isVideoUrl(src) ? (
+                  <div
+                    key={`${src}-${i}`}
+                    className="shrink-0 w-[320px] sm:w-[420px] rounded-2xl overflow-hidden border border-black/10 bg-black"
+                  >
+                    <div className="aspect-[16/10] w-full">
+                      <video
+                        src={src}
+                        controls
+                        playsInline
+                        className="h-full w-full object-cover"
+                      />
+                    </div>
                   </div>
-                </button>
-              ))}
+                ) : (
+                  <button
+                    key={`${src}-${i}`}
+                    type="button"
+                    onClick={() => setActiveSrc(src)}
+                    className="shrink-0 w-[320px] sm:w-[420px] rounded-2xl overflow-hidden border border-black/10 bg-white"
+                  >
+                    <div className="aspect-[16/10] w-full">
+                      <img
+                        src={src}
+                        alt={`${t(project.titleKey)} gallery ${i + (hasVideo ? 1 : 3)}`}
+                        className="h-full w-full object-cover"
+                        loading="lazy"
+                      />
+                    </div>
+                  </button>
+                )
+              )}
             </HorizontalScrollHint>
           </div>
         ) : null}
@@ -185,8 +225,10 @@ export default function ProjectDetail() {
       {activeSrc ? (
         <ImageLightbox
           src={activeSrc}
-          alt={`${project.title} fullscreen`}
+          alt={`${t(project.titleKey)} fullscreen`}
           onClose={() => setActiveSrc(null)}
+          sources={project.images.filter((s) => !isVideoUrl(s))}
+          onNavigate={setActiveSrc}
         />
       ) : null}
     </main>

@@ -37,7 +37,22 @@ export default function HorizontalScrollHint({ className, children }: Props) {
     const el = ref.current
     if (!el) return
     const amount = Math.max(220, Math.floor(el.clientWidth * 0.8))
-    el.scrollBy({ left: direction === "left" ? -amount : amount, behavior: "smooth" })
+    const maxScrollLeft = Math.max(0, el.scrollWidth - el.clientWidth)
+    const target =
+      direction === "left"
+        ? Math.max(0, el.scrollLeft - amount)
+        : Math.min(maxScrollLeft, el.scrollLeft + amount)
+    el.scrollTo({ left: target, behavior: "smooth" })
+    // Su iOS lo smooth scroll può overshootare: correggiamo quando si ferma
+    const clamp = () => {
+      if (!el) return
+      const max = Math.max(0, el.scrollWidth - el.clientWidth)
+      if (el.scrollLeft < 0 || el.scrollLeft > max) {
+        el.scrollLeft = Math.max(0, Math.min(max, el.scrollLeft))
+      }
+    }
+    el.addEventListener("scrollend", clamp, { once: true })
+    setTimeout(clamp, 400)
   }
 
   const update = useMemo(

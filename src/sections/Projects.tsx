@@ -18,7 +18,7 @@ export default function Projects() {
       </Reveal>
       <div className="grid md:grid-cols-2 gap-10">
         {projects.map((project) => (
-          <Reveal key={project.title}>
+          <Reveal key={project.slug}>
             <ProjectCard project={project} langPrefix={langPrefix} />
           </Reveal>
         ))}
