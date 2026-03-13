@@ -47,6 +47,16 @@ echo "git lfs version: $(git lfs version)"
 # Evita prompt interattivi (in CI bloccherebbero la build)
 export GIT_TERMINAL_PROMPT=0
 
+# Se Vercel non riesce ad autenticarsi per scaricare LFS (401/403),
+# puoi aggiungere un token GitHub nelle env vars (consigliato: GITHUB_TOKEN).
+token="${GITHUB_TOKEN:-${GH_TOKEN:-}}"
+if [[ -n "${token}" ]]; then
+  if command -v base64 >/dev/null 2>&1; then
+    auth="$(printf "x-access-token:%s" "${token}" | base64 | tr -d '\n')"
+    git config --local http.https://github.com/.extraheader "AUTHORIZATION: basic ${auth}"
+  fi
+fi
+
 git lfs install --local
 
 echo "Pulling Git LFS objects..."
