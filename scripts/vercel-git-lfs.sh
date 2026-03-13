@@ -14,6 +14,10 @@ if [[ ! -d ".git" ]]; then
   exit 0
 fi
 
+if [[ "${LFS_DEBUG:-}" == "1" ]]; then
+  set -x
+fi
+
 ensure_git_lfs() {
   if command -v git-lfs >/dev/null 2>&1; then
     return 0
@@ -37,5 +41,18 @@ ensure_git_lfs() {
 
 ensure_git_lfs
 
+echo "git version: $(git --version)"
+echo "git lfs version: $(git lfs version)"
+
+# Evita prompt interattivi (in CI bloccherebbero la build)
+export GIT_TERMINAL_PROMPT=0
+
 git lfs install --local
-git lfs pull
+
+echo "Pulling Git LFS objects..."
+if ! git lfs pull --include="*.mp4,*.mov" --exclude=""; then
+  echo "ERROR: git lfs pull fallito."
+  echo "Suggerimento: se vedi 401/403, su Vercel potrebbe servire un token GitHub con permessi di lettura su LFS."
+  git lfs logs last || true
+  exit 1
+fi
