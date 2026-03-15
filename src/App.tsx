@@ -12,6 +12,7 @@ import ProjectDetail from "./pages/ProjectDetail"
 import { useI18n, type Lang } from "./i18n"
 
 const LANGS: Lang[] = ["en", "it", "fr"]
+const HOME_SCROLL_KEY = "portfolio_home_scroll"
 
 function RedirectToLang() {
   return <Navigate to="/en" replace />
@@ -26,6 +27,18 @@ function LangSync({ children }: { children: React.ReactNode }) {
   }, [lang, setLang])
 
   if (!lang || !LANGS.includes(lang as Lang)) return <Navigate to="/en" replace />
+  return <>{children}</>
+}
+
+function HomeScrollRestore({ children }: { children: React.ReactNode }) {
+  useEffect(() => {
+    const raw = sessionStorage.getItem(HOME_SCROLL_KEY)
+    if (raw !== null) {
+      sessionStorage.removeItem(HOME_SCROLL_KEY)
+      const y = parseInt(raw, 10)
+      if (!Number.isNaN(y)) requestAnimationFrame(() => window.scrollTo(0, y))
+    }
+  }, [])
   return <>{children}</>
 }
 
@@ -48,14 +61,16 @@ export default function App() {
           path="/:lang"
           element={
             <LangSync>
-              <main className="w-full px-6 sm:px-10 pt-24">
-                <Hero />
-                <About />
-                <Projects />
-                <Experience />
-                <Education />
-                <Contact />
-              </main>
+              <HomeScrollRestore>
+                <main className="w-full px-6 sm:px-10 pt-24">
+                  <Hero />
+                  <About />
+                  <Projects />
+                  <Experience />
+                  <Education />
+                  <Contact />
+                </main>
+              </HomeScrollRestore>
             </LangSync>
           }
         />

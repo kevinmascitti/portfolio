@@ -8,10 +8,23 @@ type Props = {
   langPrefix: string
 }
 
+const HOME_SCROLL_KEY = "portfolio_home_scroll"
+
 export default function ProjectCard({ project, langPrefix }: Props) {
   const { t } = useI18n()
+  const saveScrollAndNavigate = () => {
+    try {
+      sessionStorage.setItem(HOME_SCROLL_KEY, String(window.scrollY))
+    } catch {
+      // ignore
+    }
+  }
   return (
-    <Link to={`${langPrefix}/projects/${project.slug}`} className="block">
+    <Link
+      to={`${langPrefix}/projects/${project.slug}`}
+      className="block"
+      onClick={saveScrollAndNavigate}
+    >
       <motion.div
         whileHover={{ scale: 1.04 }}
         transition={{ duration: 0.3 }}

@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 import { Link, useParams } from "react-router-dom"
 import HorizontalScrollHint from "../components/HorizontalScrollHint"
 import ImageLightbox from "../components/ImageLightbox"
@@ -30,6 +30,10 @@ export default function ProjectDetail() {
   const next = index >= 0 && index < projects.length - 1 ? projects[index + 1] : null
 
   const [activeSrc, setActiveSrc] = useState<string | null>(null)
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   if (!project) {
     return (

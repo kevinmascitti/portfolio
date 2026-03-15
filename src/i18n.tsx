@@ -168,7 +168,7 @@ const translations: Record<Lang, Record<string, string>> = {
     "topbar.lang.fr": "Francese",
 
     "hero.left":
-      "Ciao, sono Kevin, uno sviluppatore 3D focalizzato su esperienze interattive, realtà virtuale/aumentata e gamification.",
+      "Ciao sono Kevin, uno sviluppatore 3D focalizzato su esperienze interattive, realtà virtuale/aumentata e gamification.",
     "hero.right":
       "Progetto e sviluppo esperienze real‑time con Unity, Unreal e tecnologie web moderne, in cui l'esperienza utente è messa al centro.",
 
