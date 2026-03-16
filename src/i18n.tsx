@@ -61,10 +61,19 @@ const translations: Record<Lang, Record<string, string>> = {
     "experience.collegio.desc":
       "Network and IT assistant in a student residence: managing the residents database and accounts, configuring new users and handling devices and network access.",
 
+    "education.msc.period": "Sep 2021 — Jul 2024",
+    "education.msc.institution": "Politecnico di Torino, Italy",
+    "education.msc.title": "MSc in Computer Engineering",
     "education.msc.desc":
       "Specialized in computer graphics, animation, interactive real-time systems, and multimedia processing.",
+    "education.master.period": "Sep 2022 — Sep 2023",
+    "education.master.institution": "INP Grenoble – ENSIMAG, France",
+    "education.master.title": "Master in Computer Science",
     "education.master.desc":
       "Focused on user-centered interactive systems and HCI, creating intuitive interfaces and studying usability and interactive experiences.",
+    "education.bsc.period": "Sep 2018 — Sep 2021",
+    "education.bsc.institution": "Politecnico di Torino, Italy",
+    "education.bsc.title": "Bachelor in Computer Engineering",
     "education.bsc.desc":
       "Engineering foundation with emphasis on software/hardware systems, programming and computer networks.",
 
@@ -210,10 +219,19 @@ const translations: Record<Lang, Record<string, string>> = {
     "experience.collegio.desc":
       "Assistente di rete e IT in collegio: gestione del database dei collegiali e degli account, creazione di nuovi utenti e gestione dei dispositivi e dell’accesso alla rete.",
 
+    "education.msc.period": "Set 2021 — Lug 2024",
+    "education.msc.institution": "Politecnico di Torino",
+    "education.msc.title": "Laurea Magistrale in Ingegneria Informatica",
     "education.msc.desc":
       "Specializzazione in computer grafica, animazione, sistemi interattivi real‑time e multimedia.",
+    "education.master.period": "Set 2022 — Set 2023",
+    "education.master.institution": "INP Grenoble – ENSIMAG, Francia",
+    "education.master.title": "Master in Informatica",
     "education.master.desc":
       "Focus su sistemi interattivi user‑centered e HCI, progettando interfacce intuitive e studiando usabilità e user experience.",
+    "education.bsc.period": "Set 2018 — Set 2021",
+    "education.bsc.institution": "Politecnico di Torino",
+    "education.bsc.title": "Laurea Triennale in Ingegneria Informatica",
     "education.bsc.desc":
       "Fondamenta di ingegneria con enfasi su sistemi software/hardware, programmazione e reti di calcolatori.",
 
@@ -359,10 +377,19 @@ const translations: Record<Lang, Record<string, string>> = {
     "experience.collegio.desc":
       "Assistant réseau et IT dans une résidence étudiante : gestion de la base de données des résidents et des comptes, création de nouveaux utilisateurs et gestion des appareils et de l’accès réseau.",
 
+    "education.msc.period": "Sept 2021 — Juil 2024",
+    "education.msc.institution": "Politecnico di Torino, Italie",
+    "education.msc.title": "Master en Ingénierie Informatique",
     "education.msc.desc":
       "Spécialisation en graphisme, animation, systèmes interactifs temps réel et traitement multimédia.",
+    "education.master.period": "Sept 2022 — Sept 2023",
+    "education.master.institution": "INP Grenoble – ENSIMAG",
+    "education.master.title": "Master en Informatique",
     "education.master.desc":
       "Axé sur les systèmes interactifs centrés utilisateur et l’HCI, création d’interfaces intuitives et études d’utilisabilité.",
+    "education.bsc.period": "Sept 2018 — Sept 2021",
+    "education.bsc.institution": "Politecnico di Torino, Italie",
+    "education.bsc.title": "Licence en Ingénierie Informatique",
     "education.bsc.desc":
       "Bases d’ingénierie avec accent sur les systèmes logiciels/matériels, la programmation et les réseaux informatiques.",
 

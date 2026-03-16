@@ -6,23 +6,23 @@ export default function Education() {
   const { t } = useI18n()
   const items = [
     {
-      period: "Sep 2021 — Jul 2024",
-      institution: "Politecnico di Torino (IT)",
-      title: "MSc in Computer Engineering",
+      period: t("education.msc.period"),
+      institution: t("education.msc.institution"),
+      title: t("education.msc.title"),
       grade: "110/110",
       description: t("education.msc.desc"),
     },
     {
-      period: "Sep 2022 — Sep 2023",
-      institution: "INP Grenoble – ENSIMAG (FR)",
-      title: "Master in Computer Science",
+      period: t("education.master.period"),
+      institution: t("education.master.institution"),
+      title: t("education.master.title"),
       grade: "GPA: 3.4/4.0",
       description: t("education.master.desc"),
     },
     {
-      period: "Sep 2018 — Sep 2021",
-      institution: "Politecnico di Torino (IT)",
-      title: "Bachelor in Computer Science",
+      period: t("education.bsc.period"),
+      institution: t("education.bsc.institution"),
+      title: t("education.bsc.title"),
       grade: "107/110",
       description: t("education.bsc.desc"),
     },
