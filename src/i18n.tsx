@@ -25,7 +25,7 @@ const translations: Record<Lang, Record<string, string>> = {
 
     "about.title": "About me",
     "about.p1":
-      "I'm a 3D developer and interaction designer who loves to create visual, playful and immersive experiences.",
+      "I'm a 3D developer and interaction designer. I love to create visual, playful and immersive experiences.",
     "about.p2":
       "I believe that technology and creativity can intertwine to create unique experiences for the user and I believe that this can have a strong impact on people. I like transforming abstract ideas into something you can actually see and try, interacting with designers and teams until the experience feels intuitive and seamless.",
     "about.p3":
@@ -132,7 +132,7 @@ const translations: Record<Lang, Record<string, string>> = {
     "project.andys-room.title": "Andy's Room",
     "project.andys-room.category": "3D Scene (Blender)",
     "project.andys-room.overview": "A 3D recreation of Andy's room from the Pixar film, made in Blender. The scene uses Bezier curves, particle systems, cloth and fluid simulation, sculpting, and more. Project for the Computer Graphics course at Politecnico di Torino.",
-    "project.andys-room.about": "Andy's Room is a detailed 3D scene that reproduces the bedroom of Andy, the child protagonist of the Pixar film. The project was built in Blender using a wide range of techniques: array modifier and Bézier curves for the Hot Wheels track, particle systems for confetti and carpet, cloth simulation for the t-shirt and bedding, dupliverts for the spiky ball, fire simulation for the candle, liquid and gas simulation for the spilled juice and steaming tea, skinning and UV mapping, soft body for the deflated balloon, metaballs for the play-doh letter, box modeling and procedural textures for the dresser, bump and normal mapping for the parquet and wainscoting, rigid body for the cube pyramid, sculpting for the owl figurine, spin editing for the clock, boolean operators for the door, displacement and weight painting, and lattice for the poster. Developed for the Computer Graphics course at Politecnico di Torino.",
+    "project.andys-room.about": "Andy's Room is a detailed 3D scene that reproduces the bedroom of Andy, the child protagonist of the Pixar film. The project was built in Blender using a wide range of techniques: array modifier and Bézier curves (for the Hot Wheels track), particle systems (confetti and carpet), cloth simulation (the t-shirt and bedding), dupliverts (the spiky ball), fire simulation (the candle), liquid and gas simulation (the spilled juice and steaming tea), skinning and UV mapping, soft body (the deflated balloon), metaballs (the play-doh letter), box modeling and procedural textures (the dresser), bump and normal mapping (the parquet and wainscoting), rigid body (the cube pyramid), sculpting (the owl figurine), spin editing (the clock), boolean operators (the door), displacement and weight painting, and lattice (the poster). Developed for the Computer Graphics course at Politecnico di Torino.",
     "project.andys-room.goal": "Create a faithful 3D reproduction of Andy's room from the film using a variety of modeling, simulation and rendering techniques in Blender.",
     "project.andys-room.role": "3D Artist & Technical Artist",
     "project.andys-room.services": "3D Modeling · Blender · Simulations · Rendering",
@@ -201,7 +201,7 @@ const translations: Record<Lang, Record<string, string>> = {
 
     "about.title": "Chi sono",
     "about.p1":
-      "Sono un ingegnere del software e uno sviluppatore 3D; mi piace creare esperienze visive, giocose e immersive.",
+      "Sono un ingegnere del software e uno sviluppatore 3D. Mi piace creare esperienze visive, giocose e immersive.",
     "about.p2":
       "Credo che la tecnologia e la creatività possano intrecciarsi per creare esperienze uniche per l'utente e credo che questo possa avere un forte impatto sulle persone. Mi piace trasformare idee astratte in qualcosa che puoi vedere e provare, interagendo con designer e team finché l'esperienza non risulta intuitiva e fluida.",
     "about.p3":
@@ -308,7 +308,7 @@ const translations: Record<Lang, Record<string, string>> = {
     "project.andys-room.title": "Stanza di Andy",
     "project.andys-room.category": "Scena 3D (Blender)",
     "project.andys-room.overview": "Una ricostruzione 3D della cameretta di Andy del film Pixar, realizzata in Blender. La scena usa curve di Bézier, sistemi di particelle, simulazioni cloth e fluidi, sculpting e altro. Progetto per il corso di Informatica Grafica al Politecnico di Torino.",
-    "project.andys-room.about": "Stanza di Andy è una scena 3D che riproduce la cameretta di Andy, il bambino protagonista del film Pixar. Il progetto è stato realizzato in Blender con molte tecniche: array modifier e curve di Bézier per la pista Hot Wheels, particle system per coriandoli e tappeto, cloth simulation per la t-shirt e la biancheria, dupliverts per la palla con punte, fire simulation per la candela, simulazione liquidi e gas per il succo rovesciato e il tè fumante, skinning e UV mapping, soft body per il palloncino sgonfio, metaball per la A di pongo, box modeling e texture procedurali per il comò, bump e normal mapping per parquet e boiserie, rigid body per la piramide di cubi, sculpting per il gufo, spin editing per l'orologio, operatori booleani per la porta, displacement e weight painting, lattice per il poster. Sviluppato per il corso di Informatica Grafica al Politecnico di Torino.",
+    "project.andys-room.about": "Stanza di Andy è una scena 3D che riproduce la cameretta di Andy, il bambino protagonista del film Pixar. Il progetto è stato realizzato in Blender con molte tecniche: array modifier e curve di Bézier (per la pista Hot Wheels), particle system (coriandoli e tappeto), cloth simulation (la t-shirt e la biancheria), dupliverts (la palla con punte), fire simulation (la candela), simulazione liquidi e gas (il succo rovesciato e il tè fumante), skinning e UV mapping, soft body (il palloncino sgonfio), metaball (la A di pongo), box modeling e texture procedurali (il comò), bump e normal mapping (parquet e boiserie), rigid body (la piramide di cubi), sculpting (il gufo), spin editing (l'orologio), operatori booleani (la porta), displacement e weight painting (il poster).",
     "project.andys-room.goal": "Realizzare una fedele riproduzione 3D della stanza di Andy del film usando tecniche di modellazione, simulazione e rendering in Blender.",
     "project.andys-room.role": "3D Artist & Technical Artist",
     "project.andys-room.services": "3D Modeling · Blender · Simulazioni · Rendering",
@@ -377,7 +377,7 @@ const translations: Record<Lang, Record<string, string>> = {
 
     "about.title": "À propos",
     "about.p1":
-      "Je suis un développeur 3D et designer d’interaction, passionné par les expériences visuelles, ludiques et immersives.",
+      "Je suis un développeur 3D et designer d’interaction. Passionné par les expériences visuelles, ludiques et immersives.",
     "about.p2":
       "Je crois que la technologie et la créativité peuvent s'entrecroiser pour créer des expériences uniques pour l'utilisateur et je crois que cela peut avoir un fort impact sur les personnes. Je transforme des idées abstraites en quelque chose que l'on peut voir et essayer, en interagissant avec les designers et les équipes jusqu'à ce que l'expérience soit intuitive et fluide.",
     "about.p3":
@@ -484,7 +484,7 @@ const translations: Record<Lang, Record<string, string>> = {
     "project.andys-room.title": "La chambre d'Andy",
     "project.andys-room.category": "Scène 3D (Blender)",
     "project.andys-room.overview": "Une recréation 3D de la chambre d'Andy du film Pixar, réalisée dans Blender. La scène utilise des courbes de Bézier, des systèmes de particules, des simulations tissu et fluides, du sculpting et plus. Projet pour le cours d'Informatique Graphique au Politecnico de Turin.",
-    "project.andys-room.about": "La chambre d'Andy est une scène 3D qui reproduit la chambre d'Andy, l'enfant protagoniste du film Pixar. Le projet a été réalisé dans Blender avec de nombreuses techniques : array modifier et courbes de Bézier pour la piste Hot Wheels, particle system pour les confettis et le tapis, cloth simulation pour le t-shirt et la literie, dupliverts pour la balle à pics, fire simulation pour la bougie, simulation liquides et gaz pour le jus renversé et le thé fumant, skinning et UV mapping, soft body pour le ballon dégonflé, metaball pour la lettre A en pâte à modeler, box modeling et textures procédurales pour la commode, bump et normal mapping pour le parquet et la boiserie, rigid body pour la pyramide de cubes, sculpting pour le hibou, spin editing pour l'horloge, opérateurs booléens pour la porte, displacement et weight painting, lattice pour l'affiche. Développé pour le cours d'Informatique Graphique au Politecnico de Turin.",
+    "project.andys-room.about": "La chambre d'Andy est une scène 3D qui reproduit la chambre d'Andy, l'enfant protagoniste du film Pixar. Le projet a été réalisé dans Blender avec de nombreuses techniques : array modifier et courbes de Bézier (pour la piste Hot Wheels), particle system (confettis et tapis), cloth simulation (le t-shirt et la literie), dupliverts (la balle à pics), fire simulation (la bougie), simulation liquides et gaz (le jus renversé et le thé fumant), skinning et UV mapping, soft body (le ballon dégonflé), metaball (la lettre A en pâte à modeler), box modeling et textures procédurales (la commode), bump et normal mapping (le parquet et la boiserie), rigid body (la pyramide de cubes), sculpting (le hibou), spin editing (l'horloge), opérateurs booléens (la porte), displacement et weight painting, lattice (l'affiche).",
     "project.andys-room.goal": "Créer une reproduction 3D fidèle de la chambre d'Andy du film en utilisant des techniques de modélisation, simulation et rendu dans Blender.",
     "project.andys-room.role": "3D Artist & Technical Artist",
     "project.andys-room.services": "3D Modeling · Blender · Simulations · Rendu",
