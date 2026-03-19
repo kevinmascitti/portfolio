@@ -875,7 +875,6 @@ export const documentation: Record<string, ProjectDocumentation> = {
       chosen: [
         { en: "UI Text Rendering", it: "Rendering testo UI", fr: "Rendu de texte UI" },
         { en: "Unity Input System", it: "Unity Input System", fr: "Unity Input System" },
-        { en: "DOTween", it: "DOTween", fr: "DOTween" }
       ],
       systems: [
         { en: "Animator", it: "Animator", fr: "Animator" },
