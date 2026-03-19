@@ -2,6 +2,7 @@
 
 // Televasion (video + images 1–4)
 import TelevasionMp4 from "../pages/images/Televasion.mp4"
+import Televasion2Mp4 from "../pages/images/Televasion2.mp4"
 import Televasion1 from "../pages/images/Televasion1.gif"
 import Televasion2 from "../pages/images/Televasion2.gif"
 import Televasion3 from "../pages/images/Televasion3.png"
@@ -51,8 +52,8 @@ import ADV4 from "../pages/images/ADV4.png"
 
 export const projectAssets = {
   televasion: {
-    video: TelevasionMp4 as string,
-    images: [Televasion1, Televasion2, Televasion3, Televasion4] as string[],
+    video: Televasion2Mp4 as string,
+    images: [TelevasionMp4, Televasion1, Televasion2, Televasion3, Televasion4] as string[],
     image: Televasion1 as string,
   },
   "connecting-nature": {
