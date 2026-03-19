@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react"
+import { AnimatePresence, motion } from "framer-motion"
 import { Link, useParams } from "react-router-dom"
 import HorizontalScrollHint from "../components/HorizontalScrollHint"
 import ImageLightbox from "../components/ImageLightbox"
@@ -104,7 +105,7 @@ export default function ProjectDetail() {
           </div>
 
           <div className="lg:col-span-5">
-            <div className="text-[11px] uppercase tracking-widest text-black/40">Overview</div>
+            <div className="text-[11px] uppercase tracking-widest text-black/40">{t("project.overviewLabel")}</div>
             <p className="mt-3 text-sm sm:text-base text-black/70 leading-relaxed">
               {t(project.overviewKey)}
             </p>
@@ -113,11 +114,11 @@ export default function ProjectDetail() {
 
         <div className="mt-12 grid grid-cols-2 lg:grid-cols-4 gap-8 text-sm">
           <div>
-            <div className="text-[11px] uppercase tracking-widest text-black/40">Year</div>
+            <div className="text-[11px] uppercase tracking-widest text-black/40">{t("project.yearLabel")}</div>
             <div className="mt-2 text-black/70">{project.year}</div>
           </div>
           <div>
-            <div className="text-[11px] uppercase tracking-widest text-black/40">Role</div>
+            <div className="text-[11px] uppercase tracking-widest text-black/40">{t("project.roleLabel")}</div>
             <div className="mt-2 text-black/70">{t(project.roleKey)}</div>
           </div>
           <div className="col-span-2">
@@ -190,15 +191,47 @@ export default function ProjectDetail() {
         {project.documentationKey && (
           <div className="mt-20 flex justify-center">
             <button
+              type="button"
               onClick={() => setIsDocumentationExpanded(!isDocumentationExpanded)}
-              className="px-6 py-3 bg-black text-white rounded-full font-medium hover:bg-black/80 transition-colors"
+              aria-expanded={isDocumentationExpanded}
+              className="project-nav-pill ui-pill rounded-full border backdrop-blur-md shadow-sm flex gap-2 items-center justify-center w-10 h-10 sm:w-auto sm:h-auto sm:px-3 sm:py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2"
             >
-              {isDocumentationExpanded ? t("documentation.collapse") : t("documentation.expand")}
+              <span className="hidden sm:inline">
+                {isDocumentationExpanded ? t("documentation.collapse") : t("documentation.expand")}
+              </span>
+              <motion.span
+                className="inline-flex"
+                initial={false}
+                animate={{ rotate: isDocumentationExpanded ? 180 : 0 }}
+                transition={{ duration: 0.22, ease: "easeOut" }}
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path
+                    d="M6 9l6 6 6-6"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </motion.span>
             </button>
           </div>
         )}
 
-        {isDocumentationExpanded && project.documentationKey && <ProjectDocumentation documentationKey={project.documentationKey} />}
+        <AnimatePresence initial={false}>
+          {isDocumentationExpanded && project.documentationKey && (
+            <motion.div
+              key={`documentation-${project.documentationKey}`}
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+            >
+              <ProjectDocumentation documentationKey={project.documentationKey} />
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         {rest.length ? (
           <div className="mt-24">

@@ -1,0 +1,813 @@
+{
+  "project.outer-words.documentation": {
+    "overview": {
+      "en": "Outer Words is a word game where players type letters on keyboard to complete words falling from above before they hit ground. I created 3D letter generation system, keyboard input tutorial, and word management. It's a frantic game requiring typing speed and attention.",
+      "it": "Outer Words è un gioco di parole dove il giocatore deve scrivere lettere sulla tastiera per completare parole che cadono dall'alto prima che tocchino il suolo. Ho creato sistemi per generare parole composte da lettere 3D, gestire l'input tastiera, e un tutorial iniziale che insegna al giocatore come giocare. È un gioco frenetico che richiede velocità di digitazione e attenzione.",
+      "fr": "Outer Words est un jeu de mots où les joueurs tapent des lettres sur le clavier pour compléter des mots tombant du haut avant de toucher le sol. J'ai créé un système de génération de lettres 3D, un tutoriel d'entrée clavier et une gestion de mots. C'est un jeu frénétique nécessitant une vitesse de frappe et de l'attention."
+    },
+    "coreSystems": [
+      {
+        "title": {
+          "en": "Word creation system",
+          "it": "Sistema di creazione parole",
+          "fr": "Sistema di creazione parole"
+        },
+        "description": {
+          "en": "Implemented system that creates words by instantiating 3D letters as children of word object. Each letter is separate prefab (A-Z) dynamically loaded from Resources. Letters auto-position with layout system to form correct word.",
+          "it": "Ho implementato un sistema che crea parole istanziando lettere 3D come figli di un oggetto parola. Ogni lettera è un prefab separato (A-Z) caricato dinamicamente da Resources. Le lettere vengono posizionate automaticamente con un layout per formare la parola corretta.",
+          "fr": "Ho implementato un sistema che crea parole istanziando lettere 3D come figli di un oggetto parola. Ogni lettera è un prefab separato (A-Z) caricato dinamicamente da Resources. Le lettere vengono posizionate automaticamente con un layout per formare la parola corretta."
+        }
+      },
+      {
+        "title": {
+          "en": "Keyboard input tutorial",
+          "it": "Sistema di input tastiera",
+          "fr": "Sistema di input tastiera"
+        },
+        "description": {
+          "en": "Created tutorial showing player how to use keyboard. Instantiates three words ('usa', 'la', 'tastiera') that fall gradually, teaching game controls through gameplay.",
+          "it": "Ho creato un sistema per il tutorial che mostra al giocatore come usare la tastiera. Istanzia tre parole (\"usa\", \"la\", \"tastiera\") che cadono gradualmente, insegnando i controlli base del gioco.",
+          "fr": "Ho creato un sistema per il tutorial che mostra al giocatore come usare la tastiera. Istanzia tre parole (\"usa\", \"la\", \"tastiera\") che cadono gradualmente, insegnando i controlli base del gioco."
+        }
+      },
+      {
+        "title": {
+          "en": "Word management system",
+          "it": "Gestione lista parole",
+          "fr": "Gestione lista parole"
+        },
+        "description": {
+          "en": "Modified system to manage spawned words, track active words. When word completed, removes from list and animates upward before destruction.",
+          "it": "Ho modificato il sistema di gestione delle parole spawnate, aggiungendo una lista che traccia le parole attive. Quando una parola viene completata, viene rimossa dalla lista e animata verso l'alto prima di essere distrutta.",
+          "fr": "Ho modificato il sistema di gestione delle parole spawnate, aggiungendo una lista che traccia le parole attive. Quando una parola viene completata, viene rimossa dalla lista e animata verso l'alto prima di essere distrutta."
+        }
+      },
+      {
+        "title": {
+          "en": "Alphabet letter prefabs",
+          "it": "Sistema di lettere prefab",
+          "fr": "Sistema di lettere prefab"
+        },
+        "description": {
+          "en": "Created and configured prefabs for all 26 letters (A-Z), each with materials and layout. Prefabs used by word creation system to compose text dynamically.",
+          "it": "Ho creato e configurato i prefab per tutte le lettere dell'alfabeto (A-Z), ciascuno con materiali e layout appropriati. I prefab vengono usati dal sistema di creazione parole per comporre testi 3D.",
+          "fr": "Ho creato e configurato i prefab per tutte le lettere dell'alfabeto (A-Z), ciascuno con materiali e layout appropriati. I prefab vengono usati dal sistema di creazione parole per comporre testi 3D."
+        }
+      },
+      {
+        "title": {
+          "en": "Material and font system",
+          "it": "Sistema di materiali e font",
+          "fr": "Sistema di materiali e font"
+        },
+        "description": {
+          "en": "Configured materials for green and red text, updated TextMeshPro fonts for better readability. Managed font fallback for special characters.",
+          "it": "Ho configurato materiali per testi verdi e rossi, e aggiornato i font TextMeshPro per una migliore leggibilità. Ho anche gestito il fallback dei font per supportare caratteri speciali.",
+          "fr": "Ho configurato materiali per testi verdi e rossi, e aggiornato i font TextMeshPro per una migliore leggibilità. Ho anche gestito il fallback dei font per supportare caratteri speciali."
+        }
+      },
+      {
+        "title": {
+          "en": "Main game scene",
+          "it": "Sistema di scena generale",
+          "fr": "Sistema di scena generale"
+        },
+        "description": {
+          "en": "Updated main scene with tutorial mechanics, positioned initial words, configured background movement. Scene integrates all systems for gameplay.",
+          "it": "Ho aggiornato la scena principale del gioco, aggiungendo elementi del tutorial, posizionando parole iniziali, e configurando il movimento di sfondo. La scena include tutti i sistemi integrati per il gameplay.",
+          "fr": "Ho aggiornato la scena principale del gioco, aggiungendo elementi del tutorial, posizionando parole iniziali, e configurando il movimento di sfondo. La scena include tutti i sistemi integrati per il gameplay."
+        }
+      },
+      {
+        "title": {
+          "en": "Dynamic resource loading",
+          "it": "Sistema di caricamento risorse",
+          "fr": "Sistema di caricamento risorse"
+        },
+        "description": {
+          "en": "Implemented Resources.Load for dynamic prefab instantiation. No direct references, allowing flexible asset management.",
+          "it": "Ho implementato il caricamento dinamico di prefab e risorse usando Resources.Load. Questo permette di istanziare lettere e parole senza riferimenti diretti, rendendo il codice più flessibile.",
+          "fr": "Ho implementato il caricamento dinamico di prefab e risorse usando Resources.Load. Questo permette di istanziare lettere e parole senza riferimenti diretti, rendendo il codice più flessibile."
+        }
+      },
+      {
+        "title": {
+          "en": "Animation and physics system",
+          "it": "Sistema di animazioni e fisica",
+          "fr": "Sistema di animazioni e fisica"
+        },
+        "description": {
+          "en": "Configured physics for tutorial words: gradual gravity enable, Rigidbody constraints for controlled movement. Managed animations for drop timing.",
+          "it": "Ho configurato la fisica per le parole del tutorial, bloccando posizioni e abilitando gravità gradualmente. Ho anche gestito vincoli Rigidbody per controllare il movimento delle parole.",
+          "fr": "Ho configurato la fisica per le parole del tutorial, bloccando posizioni e abilitando gravità gradualmente. Ho anche gestito vincoli Rigidbody per controllare il movimento delle parole."
+        }
+      }
+    ],
+    "architecture": {
+      "title": {
+        "en": "Component-Based Composition",
+        "it": "Sistema basato su Componenti",
+        "fr": "Sistema basato su Componenti"
+      },
+      "description": {
+        "en": "Words use composition over inheritance. Each word contains letters as children. Modular and reusable for different word types.",
+        "it": "Come funziona: - Ogni parola è un GameObject con WordObject script - Le lettere sono prefab figli con LayoutElement - Il sistema di input gestisce il tutorial separatamente Vantaggi: - I componenti sono modulari e riutilizzabili - Facile aggiungere nuove parole o lettere - Separazione chiara tra logica e presentazione",
+        "fr": "Come funziona: - Ogni parola è un GameObject con WordObject script - Le lettere sono prefab figli con LayoutElement - Il sistema di input gestisce il tutorial separatamente Vantaggi: - I componenti sono modulari e riutilizzabili - Facile aggiungere nuove parole o lettere - Separazione chiara tra logica e presentazione"
+      },
+      "principles": [
+        {
+          "name": {
+            "en": "Single Responsibility",
+            "it": "Responsabilità singola",
+            "fr": "Responsabilità singola"
+          },
+          "description": {
+            "en": "WordObject creates words, WordsList manages them, UsaLaTastiera runs tutorial.",
+            "it": "WordObject crea parole, UsaLaTastiera gestisce tutorial",
+            "fr": "WordObject crea parole, UsaLaTastiera gestisce tutorial"
+          }
+        },
+        {
+          "name": {
+            "en": "Open/Closed",
+            "it": "Aperto/Chiuso",
+            "fr": "Aperto/Chiuso"
+          },
+          "description": {
+            "en": "Add new letters without changing word creation code.",
+            "it": "Posso aggiungere nuove lettere senza cambiare codice",
+            "fr": "Posso aggiungere nuove lettere senza cambiare codice"
+          }
+        },
+        {
+          "name": {
+            "en": "Liskov Substitution",
+            "it": "Sostituibilità",
+            "fr": "Sostituibilità"
+          },
+          "description": {
+            "en": "All letter prefabs follow same pattern.",
+            "it": "Tutti i prefab lettere seguono lo stesso schema",
+            "fr": "Tutti i prefab lettere seguono lo stesso schema"
+          }
+        },
+        {
+          "name": {
+            "en": "Interface Segregation",
+            "it": "Separazione di interfacce",
+            "fr": "Separazione di interfacce"
+          },
+          "description": {
+            "en": "Components interact via specific interfaces.",
+            "it": "Input e creazione parole sono indipendenti",
+            "fr": "Input e creazione parole sono indipendenti"
+          }
+        },
+        {
+          "name": {
+            "en": "Dependency Inversion",
+            "it": "Inversione di dipendenze",
+            "fr": "Inversione di dipendenze"
+          },
+          "description": {
+            "en": "Use Resources.Load abstract layer instead of direct references.",
+            "it": "Uso Resources.Load invece di riferimenti diretti",
+            "fr": "Uso Resources.Load invece di riferimenti diretti"
+          }
+        }
+      ],
+      "structure": {
+        "en": "Composition hierarchy: Parent Word > Child Letters, each prefab self-contained with layout element. Manager tracks word instances. Tutorial instantiates special word sets.",
+        "it": "Uso una struttura di composizione: - Parola → Contiene lettere come figli - Lettera → Prefab con materiale e collider - Lista parole → Gestisce spawn e rimozione - Tutorial → Istanzia parole speciali per insegnare",
+        "fr": "Uso una struttura di composizione: - Parola → Contiene lettere come figli - Lettera → Prefab con materiale e collider - Lista parole → Gestisce spawn e rimozione - Tutorial → Istanzia parole speciali per insegnare"
+      }
+    },
+    "stats": [
+      {
+        "label": {
+          "en": "C# Scripts Created/Modified",
+          "it": "Script C# che ho creato/modificato",
+          "fr": "Script C# che ho creato/modificato"
+        },
+        "value": "4+",
+        "description": {
+          "en": "UsaLaTastiera, WordObject, etc.",
+          "it": "UsaLaTastiera.cs, WordObject.cs, WordsList.cs, Alphabet.cs",
+          "fr": "UsaLaTastiera.cs, WordObject.cs, WordsList.cs, Alphabet.cs"
+        }
+      },
+      {
+        "label": {
+          "en": "Alphabet Prefabs Created",
+          "it": "Prefab lettere creati",
+          "fr": "Prefab lettere creati"
+        },
+        "value": 26,
+        "description": {
+          "en": "A-Z with materials and layout",
+          "it": "A-Z con materiali e layout",
+          "fr": "A-Z con materiali e layout"
+        }
+      },
+      {
+        "label": {
+          "en": "Scene Files Modified",
+          "it": "Scene modificate",
+          "fr": "Scene modificate"
+        },
+        "value": 1,
+        "description": {
+          "en": "ScenaGenerale.unity with integrated systems",
+          "it": "ScenaGenerale.unity con tutorial",
+          "fr": "ScenaGenerale.unity con tutorial"
+        }
+      },
+      {
+        "label": {
+          "en": "Materials Configured",
+          "it": "Materiali configurati",
+          "fr": "Materiali configurati"
+        },
+        "value": "3+",
+        "description": {
+          "en": "TextGreen, TextRed, font settings",
+          "it": "TextGreen.mat, TextRed.mat, font fallback",
+          "fr": "TextGreen.mat, TextRed.mat, font fallback"
+        }
+      },
+      {
+        "label": {
+          "en": "Dynamic Resources Loaded",
+          "it": "Risorse caricate dinamicamente",
+          "fr": "Risorse caricate dinamicamente"
+        },
+        "value": "27+",
+        "description": {
+          "en": "All 26 letters + Word prefab",
+          "it": "Tutte le lettere + Word.prefab",
+          "fr": "Tutte le lettere + Word.prefab"
+        }
+      },
+      {
+        "label": {
+          "en": "Commits Made",
+          "it": "Commit effettuati",
+          "fr": "Commit effettuati"
+        },
+        "value": "15+",
+        "description": {
+          "en": "Changes to scenes, scripts, prefabs, materials",
+          "it": "Modifiche a scene, script, prefab, materiali",
+          "fr": "Modifiche a scene, script, prefab, materiali"
+        }
+      }
+    ],
+    "techniques": [
+      {
+        "en": "Dynamic resource loading with Resources.Load",
+        "it": "Caricamento dinamico delle risorse con Resources.Load",
+        "fr": "Caricamento dinamico delle risorse con Resources.Load"
+      },
+      {
+        "en": "Dictionary for character-to-prefab mapping",
+        "it": "Dizionario per il mapping carattere→prefab",
+        "fr": "Dizionario per il mapping carattere→prefab"
+      },
+      {
+        "en": "LayoutElement for automatic positioning",
+        "it": "LayoutElement per il posizionamento automatico",
+        "fr": "LayoutElement per il posizionamento automatico"
+      },
+      {
+        "en": "Rigidbody constraints for physics control",
+        "it": "Vincoli Rigidbody per il controllo della fisica",
+        "fr": "Vincoli Rigidbody per il controllo della fisica"
+      },
+      {
+        "en": "Coroutines for timed sequences",
+        "it": "Coroutine per sequenze temporizzate",
+        "fr": "Coroutine per sequenze temporizzate"
+      },
+      {
+        "en": "Collider dynamic sizing based on word length",
+        "it": "Dimensionamento dinamico dei collider in base alla lunghezza della parola",
+        "fr": "Dimensionamento dinamico dei collider in base alla lunghezza della parola"
+      },
+      {
+        "en": "Prefab instantiation at runtime",
+        "it": "Istanziazione dei prefab a runtime",
+        "fr": "Istanziazione dei prefab a runtime"
+      },
+      {
+        "en": "Material assignment and swapping",
+        "it": "Assegnazione e scambio dei materiali",
+        "fr": "Assegnazione e scambio dei materiali"
+      },
+      {
+        "en": "Font fallback management",
+        "it": "Gestione del fallback dei font per i caratteri speciali",
+        "fr": "Gestione del fallback dei font per i caratteri speciali"
+      }
+    ],
+    "libraries": {
+      "chosen": [
+        {
+          "en": "TextMeshPro",
+          "it": "Rendering testo UI",
+          "fr": "Rendering testo UI"
+        },
+        {
+          "en": "Unity UI",
+          "it": "Unity UI",
+          "fr": "Unity UI"
+        },
+        {
+          "en": "Unity Physics",
+          "it": "Unity Physics",
+          "fr": "Unity Physics"
+        }
+      ],
+      "systems": [
+        {
+          "en": "Resources.Load",
+          "it": "Resources.Load",
+          "fr": "Resources.Load"
+        },
+        {
+          "en": "Instantiate",
+          "it": "Instantiate",
+          "fr": "Instantiate"
+        },
+        {
+          "en": "Coroutine",
+          "it": "Coroutine",
+          "fr": "Coroutine"
+        },
+        {
+          "en": "BoxCollider",
+          "it": "BoxCollider",
+          "fr": "BoxCollider"
+        },
+        {
+          "en": "Rigidbody",
+          "it": "Rigidbody",
+          "fr": "Rigidbody"
+        },
+        {
+          "en": "LayoutElement",
+          "it": "LayoutElement",
+          "fr": "LayoutElement"
+        }
+      ]
+    },
+    "learning": [
+      {
+        "en": "Composition over inheritance for flexibility",
+        "it": "Composizione invece di ereditarietà per maggiore flessibilità",
+        "fr": "Composizione invece di ereditarietà per maggiore flessibilità"
+      },
+      {
+        "en": "Modular resource management through Resources",
+        "it": "Gestione modulare delle risorse tramite Resources",
+        "fr": "Gestione modulare delle risorse tramite Resources"
+      },
+      {
+        "en": "Dynamic sizing and layout for generated content",
+        "it": "Ridimensionamento dinamico e layout per contenuti generati",
+        "fr": "Ridimensionamento dinamico e layout per contenuti generati"
+      },
+      {
+        "en": "Physics constraints for controlled movement",
+        "it": "Vincoli di fisica per movimenti controllati",
+        "fr": "Vincoli di fisica per movimenti controllati"
+      },
+      {
+        "en": "Tutorial design through gameplay experience",
+        "it": "Design del tutorial attraverso l'esperienza di gioco",
+        "fr": "Design del tutorial attraverso l'esperienza di gioco"
+      },
+      {
+        "en": "Prefab-based architecture for scalability",
+        "it": "Architettura basata su prefab per scalabilità",
+        "fr": "Architettura basata su prefab per scalabilità"
+      }
+    ],
+    "conclusion": {
+      "en": "Outer Words is a word game featuring 3D letter generation, keyboard input tutorial, and dynamic word management. Using composition and modular design, I created a system that generates gameplay through dynamically composed elements. This project taught me to build scalable systems where components can be flexibly assembled, and how to integrate complex systems into a playable game.",
+      "it": "Outer Words è un gioco di parole dove ho contribuito creando il sistema di generazione parole 3D, il tutorial di input tastiera, e la gestione delle lettere prefab. Ho usato architetture flessibili con caricamento dinamico e coroutine per animazioni fluide, permettendo un gameplay coinvolgente che richiede abilità di digitazione. Questo progetto mi ha insegnato a bilanciare complessità tecnica con accessibilità per giocatori, creando meccaniche che sono sia divertenti che educative.",
+      "fr": "Outer Words est un jeu de mots où j'ai contribué à la création d'un système de génération de mots 3D, d'un tutoriel d'entrée clavier et d'une gestion de lettres prefab. J'ai utilisé des architectures flexibles avec chargement dynamique et coroutines pour des animations fluides, permettant un gameplay engageant qui nécessite des compétences de frappe. Ce projet m'a appris à équilibrer la complexité technique avec l'accessibilité pour les joueurs, créant des mécaniques qui sont à la fois amusantes et éducatives."
+    }
+  },
+  "project.zurg-attack.documentation": {
+    "overview": {
+      "en": "Zurg Attack is a 3D arcade game inspired by Toy Story, programmed in C and C++ with OpenGL API. Player controls spaceship dodging obstacles and collecting coins while shooting lasers at enemies. I contributed to core systems in collaboration with Federico Mafrici for Computer Graphics course at Politecnico di Torino.",
+      "it": "Zurg Attack è un videogioco arcade 3D ispirato a Toy Story, programmato in C e C++ con l'API OpenGL. Il giocatore controlla un'astronave che deve evitare ostacoli e raccogliere monete mentre spara laser contro nemici. Ho contribuito alla realizzazione del codice principale insieme a Federico Mafrici per il corso di Informatica Grafica al Politecnico di Torino. Tutti i modelli 3D sono stati creati in Blender e importati usando la libreria Assimp.",
+      "fr": "Zurg Attack è un videogioco arcade 3D ispirato a Toy Story, programmato in C e C++ con l'API OpenGL. Il giocatore controlla un'astronave che deve evitare ostacoli e raccogliere monete mentre spara laser contro nemici. Ho contribuito alla realizzazione del codice principale insieme a Federico Mafrici per il corso di Informatica Grafica al Politecnico di Torino. Tutti i modelli 3D sono stati creati in Blender e importati usando la libreria Assimp."
+    },
+    "coreSystems": [
+      {
+        "title": {
+          "en": "Scene object management",
+          "it": "Gestione oggetti scena",
+          "fr": "Gestione oggetti scena"
+        },
+        "description": {
+          "en": "Implemented ObjectScene class representing all 3D world objects (spaceship, enemies, coins, lasers). Each object has position, dimensions, collision volume, unique ID. Updated every frame for movement and collisions.",
+          "it": "Ho implementato una classe ObjectScene per rappresentare tutti gli oggetti nel mondo 3D (astronave, nemici, monete, laser). Ogni oggetto ha posizione X/Y/Z, dimensioni di collisione, e ID univoco. Gli oggetti vengono aggiornati ogni frame per movimento e collisioni.",
+          "fr": "Ho implementato una classe ObjectScene per rappresentare tutti gli oggetti nel mondo 3D (astronave, nemici, monete, laser). Ogni oggetto ha posizione X/Y/Z, dimensioni di collisione, e ID univoco. Gli oggetti vengono aggiornati ogni frame per movimento e collisioni."
+        }
+      },
+      {
+        "title": {
+          "en": "Power-up system",
+          "it": "Sistema di power up",
+          "fr": "Sistema di power up"
+        },
+        "description": {
+          "en": "Created random power-up collection: temporary invincibility, 2X score multiplier, bomb destroying nearby enemies. Power-ups have limited duration managed with timers and boolean states.",
+          "it": "Ho creato un sistema di power up casuali che il giocatore può raccogliere: invincibilità temporanea, moltiplicatore punti 2X, e bomba che distrugge nemici vicini. I power up hanno durata limitata e vengono gestiti con timer e stati booleani.",
+          "fr": "Ho creato un sistema di power up casuali che il giocatore può raccogliere: invincibilità temporanea, moltiplicatore punti 2X, e bomba che distrugge nemici vicini. I power up hanno durata limitata e vengono gestiti con timer e stati booleani."
+        }
+      },
+      {
+        "title": {
+          "en": "Collision detection",
+          "it": "Sistema di collisioni",
+          "fr": "Sistema di collisioni"
+        },
+        "description": {
+          "en": "Implemented bounding box collision detection between objects. Spaceship collects coins, loses health from enemies, activates power-ups. Collisions checked every frame for realistic physics.",
+          "it": "Ho implementato il rilevamento collisioni tra oggetti usando bounding box. Quando l'astronave collide con monete le raccoglie, con nemici perde vita, con power up li attiva. Le collisioni vengono controllate ogni frame per fisica realistica.",
+          "fr": "Ho implementato il rilevamento collisioni tra oggetti usando bounding box. Quando l'astronave collide con monete le raccoglie, con nemici perde vita, con power up li attiva. Le collisioni vengono controllate ogni frame per fisica realistica."
+        }
+      },
+      {
+        "title": {
+          "en": "OpenGL rendering",
+          "it": "Rendering OpenGL",
+          "fr": "Rendu OpenGL"
+        },
+        "description": {
+          "en": "Configured OpenGL rendering pipeline with lights, textures, and imported models. Objects drawn with transformations, materials, textures for realistic appearance. Manages camera and perspective.",
+          "it": "Ho configurato il rendering 3D usando OpenGL con luci, texture e modelli importati da Assimp. Gli oggetti vengono disegnati con trasformazioni, materiali e texture per un aspetto realistico. Il sistema gestisce anche la camera e la prospettiva.",
+          "fr": "Ho configurato il rendering 3D usando OpenGL con luci, texture e modelli importati da Assimp. Gli oggetti vengono disegnati con trasformazioni, materiali e texture per un aspetto realistico. Il sistema gestisce anche la camera e la prospettiva."
+        }
+      },
+      {
+        "title": {
+          "en": "Audio integration",
+          "it": "Sistema audio",
+          "fr": "Sistema audio"
+        },
+        "description": {
+          "en": "Integrated FMOD for sounds and music. Sound effects for shots, collisions, power-ups, and Toy Story-themed music. System allows toggling audio and managing volume separately.",
+          "it": "Ho integrato suoni e musica usando FMOD. Effetti sonori per spari, collisioni, power up e temi musicali di Toy Story. Il sistema permette di attivare/disattivare audio e gestire volumi separatamente per musica ed effetti.",
+          "fr": "Ho integrato suoni e musica usando FMOD. Effetti sonori per spari, collisioni, power up e temi musicali di Toy Story. Il sistema permette di attivare/disattivare audio e gestire volumi separatamente per musica ed effetti."
+        }
+      },
+      {
+        "title": {
+          "en": "Game state management",
+          "it": "Gestione stato gioco",
+          "fr": "Gestione stato gioco"
+        },
+        "description": {
+          "en": "Tracked HP, score, level, difficulty. Game has multiple states (menu, playing, pause, game over) with smooth transitions. Records saved and displayed in leaderboard.",
+          "it": "Ho creato variabili globali per tracciare HP, punteggio, livello, difficoltà. Il gioco ha stati diversi (menu, gioco, pausa, game over) e transizioni fluide. I record vengono salvati e mostrati nella classifica.",
+          "fr": "Ho creato variabili globali per tracciare HP, punteggio, livello, difficoltà. Il gioco ha stati diversi (menu, gioco, pausa, game over) e transizioni fluide. I record vengono salvati e mostrati nella classifica."
+        }
+      },
+      {
+        "title": {
+          "en": "Level and difficulty progression",
+          "it": "Sistema di livelli e difficoltà",
+          "fr": "Sistema di livelli e difficoltà"
+        },
+        "description": {
+          "en": "Implemented level progression with increasing difficulty. Each level speeds up enemies and increases spawn frequency. Special boss levels and mode variants with adjustable parameters.",
+          "it": "Ho implementato progressione di livelli con difficoltà crescente. Ogni livello aumenta velocità nemici e frequenza spawn. Ci sono boss speciali e modalità diverse con parametri regolabili (difficoltà, numero Zurg).",
+          "fr": "Ho implementato progressione di livelli con difficoltà crescente. Ogni livello aumenta velocità nemici e frequenza spawn. Ci sono boss speciali e modalità diverse con parametri regolabili (difficoltà, numero Zurg)."
+        }
+      },
+      {
+        "title": {
+          "en": "Input and controls",
+          "it": "Input e controlli",
+          "fr": "Input e controlli"
+        },
+        "description": {
+          "en": "Managed keyboard and mouse input for spaceship movement and laser firing. Mouse controls rotation, WASD controls movement, spacebar pauses. Input processed each frame for responsive controls.",
+          "it": "Ho gestito input da mouse e tastiera per movimento astronave e spari laser. Il mouse controlla rotazione, i tasti WASD movimento, spazio per pausa. L'input viene processato ogni frame per controlli responsivi.",
+          "fr": "Ho gestito input da mouse e tastiera per movimento astronave e spari laser. Il mouse controlla rotazione, i tasti WASD movimento, spazio per pausa. L'input viene processato ogni frame per controlli responsivi."
+        }
+      }
+    ],
+    "architecture": {
+      "title": {
+        "en": "Monolithic C++ with Modular Functions",
+        "it": "Programma monolitico in C++",
+        "fr": "Programma monolitico in C++"
+      },
+      "description": {
+        "en": "The game is implemented in a monolithic C++ style: one main file stores the global state and the GLUT callback functions. Even though the code is centralized, responsibilities are kept clear (input handling, update, and rendering), and the whole game loop is driven by GLUT.",
+        "it": "Il gioco è implementato con uno stile C++ monolitico: un singolo file principale contiene lo stato globale e le funzioni di callback di GLUT. Anche con il codice centralizzato, le responsabilità restano chiare (gestione input, aggiornamento e rendering) e l'intero game loop è guidato da GLUT.",
+        "fr": "Le jeu est implémenté avec un style C++ monolithique : un seul fichier principal contient l’état global et les callbacks GLUT. Même si le code est centralisé, les responsabilités restent claires (gestion de l’entrée, mise à jour et rendu) et toute la boucle de jeu est pilotée par GLUT."
+      },
+      "principles": [
+        {
+          "name": {
+            "en": "Single Responsibility",
+            "it": "Responsabilità singola",
+            "fr": "Responsabilità singola"
+          },
+          "description": {
+            "en": "Separate classes for objects (ObjectScene), audio (Sound), independent functions for rendering and logic.",
+            "it": "Classi separate per oggetti, suoni, rendering",
+            "fr": "Classi separate per oggetti, suoni, rendering"
+          }
+        },
+        {
+          "name": {
+            "en": "Open/Closed",
+            "it": "Aperto/Chiuso",
+            "fr": "Aperto/Chiuso"
+          },
+          "description": {
+            "en": "Add new power-ups or object types through switch statements and enums.",
+            "it": "Posso aggiungere nuovi power up senza cambiare codice base",
+            "fr": "Posso aggiungere nuovi power up senza cambiare codice base"
+          }
+        },
+        {
+          "name": {
+            "en": "Liskov Substitution",
+            "it": "Sostituibilità",
+            "fr": "Sostituibilità"
+          },
+          "description": {
+            "en": "All objects follow ObjectScene interface pattern.",
+            "it": "Diversi tipi di oggetti seguono stessa interfaccia",
+            "fr": "Diversi tipi di oggetti seguono stessa interfaccia"
+          }
+        },
+        {
+          "name": {
+            "en": "Interface Segregation",
+            "it": "Separazione di interfacce",
+            "fr": "Separazione di interfacce"
+          },
+          "description": {
+            "en": "Rendering separated from logic, audio separated from gameplay.",
+            "it": "Rendering separato da logica di gioco",
+            "fr": "Rendering separato da logica di gioco"
+          }
+        },
+        {
+          "name": {
+            "en": "Dependency Inversion",
+            "it": "Inversione di dipendenze",
+            "fr": "Inversione di dipendenze"
+          },
+          "description": {
+            "en": "Use GLUT callbacks instead of custom loop.",
+            "it": "Uso callback GLUT invece di loop personalizzati",
+            "fr": "Uso callback GLUT invece di loop personalizzati"
+          }
+        }
+      ],
+      "structure": {
+        "en": "Global state variables for game data. Main function initializes GLUT and OpenGL. Display() renders every frame, Update() handles logic. Callback functions for input and timing.",
+        "it": "Uso una struttura funzionale: - Main → Inizializzazione GLUT e OpenGL - Display → Rendering scena ogni frame - Update → Logica di gioco e fisica - Input → Gestione mouse e tastiera - Classi → ObjectScene per entità, Sound per audio",
+        "fr": "Uso una struttura funzionale: - Main → Inizializzazione GLUT e OpenGL - Display → Rendering scena ogni frame - Update → Logica di gioco e fisica - Input → Gestione mouse e tastiera - Classi → ObjectScene per entità, Sound per audio"
+      }
+    },
+    "stats": [
+      {
+        "label": {
+          "en": "C++ Files Modified",
+          "it": "File C++ modificati",
+          "fr": "File C++ modificati"
+        },
+        "value": "2+",
+        "description": {
+          "en": "SimpleOpenGL_Loader.cpp, Sound.cpp/h",
+          "it": "SimpleOpenGL_Loader.cpp, Sound.cpp/h",
+          "fr": "SimpleOpenGL_Loader.cpp, Sound.cpp/h"
+        }
+      },
+      {
+        "label": {
+          "en": "Classes Implemented",
+          "it": "Classi implementate",
+          "fr": "Classi implementate"
+        },
+        "value": 2,
+        "description": {
+          "en": "ObjectScene for entities, Sound for audio",
+          "it": "ObjectScene, Sound",
+          "fr": "ObjectScene, Sound"
+        }
+      },
+      {
+        "label": {
+          "en": "Power-Ups Created",
+          "it": "Power up creati",
+          "fr": "Power up creati"
+        },
+        "value": 3,
+        "description": {
+          "en": "Invincibility, 2X points, Bomb",
+          "it": "Invincibilità, 2X punti, Bomba",
+          "fr": "Invincibilità, 2X punti, Bomba"
+        }
+      },
+      {
+        "label": {
+          "en": "3D Models Imported",
+          "it": "Modelli 3D importati",
+          "fr": "Modelli 3D importati"
+        },
+        "value": "10+",
+        "description": {
+          "en": "Spaceship, Zurg, coins, lasers",
+          "it": "Astronave, Zurg, monete, laser",
+          "fr": "Astronave, Zurg, monete, laser"
+        }
+      },
+      {
+        "label": {
+          "en": "Textures Applied",
+          "it": "Texture applicate",
+          "fr": "Texture applicate"
+        },
+        "value": "15+",
+        "description": {
+          "en": "Materials for all objects",
+          "it": "Materiali per tutti gli oggetti",
+          "fr": "Materiali per tutti gli oggetti"
+        }
+      },
+      {
+        "label": {
+          "en": "Sounds Integrated",
+          "it": "Suoni integrati",
+          "fr": "Suoni integrati"
+        },
+        "value": "5+",
+        "description": {
+          "en": "Effects and Toy Story music",
+          "it": "Effetti e musiche Toy Story",
+          "fr": "Effetti e musiche Toy Story"
+        }
+      },
+      {
+        "label": {
+          "en": "Commits Made",
+          "it": "Commit effettuati",
+          "fr": "Commit effettuati"
+        },
+        "value": 2,
+        "description": {
+          "en": "README updates documenting project",
+          "it": "Aggiornamenti README",
+          "fr": "Aggiornamenti README"
+        }
+      }
+    ],
+    "techniques": [
+      {
+        "en": "Pointer management and memory handling",
+        "it": "Gestione dei puntatori e della memoria",
+        "fr": "Gestione dei puntatori e della memoria"
+      },
+      {
+        "en": "Mathematical algorithms for bounding boxes",
+        "it": "Algoritmi matematici per i bounding box",
+        "fr": "Algoritmi matematici per i bounding box"
+      },
+      {
+        "en": "3D transformations and matrices",
+        "it": "Trasformazioni 3D e matrici",
+        "fr": "Trasformazioni 3D e matrici"
+      },
+      {
+        "en": "Ray casting for input projection",
+        "it": "Ray casting per la proiezione dell'input",
+        "fr": "Ray casting per la proiezione dell'input"
+      },
+      {
+        "en": "Object pooling simulation",
+        "it": "Simulazione dell'object pooling",
+        "fr": "Simulazione dell'object pooling"
+      },
+      {
+        "en": "Associate maps for texture management",
+        "it": "Map associative per la gestione delle texture",
+        "fr": "Map associative per la gestione delle texture"
+      },
+      {
+        "en": "State machines via flags",
+        "it": "State machine tramite flag",
+        "fr": "State machine tramite flag"
+      },
+      {
+        "en": "Timer-based game logic",
+        "it": "Logica di gioco basata su timer",
+        "fr": "Logica di gioco basata su timer"
+      },
+      {
+        "en": "Global state management",
+        "it": "Gestione dello stato globale",
+        "fr": "Gestione dello stato globale"
+      }
+    ],
+    "libraries": {
+      "chosen": [
+        {
+          "en": "OpenGL",
+          "it": "OpenGL",
+          "fr": "OpenGL"
+        },
+        {
+          "en": "GLUT",
+          "it": "GLUT",
+          "fr": "GLUT"
+        },
+        {
+          "en": "Assimp",
+          "it": "Assimp",
+          "fr": "Assimp"
+        },
+        {
+          "en": "DevIL",
+          "it": "DevIL",
+          "fr": "DevIL"
+        },
+        {
+          "en": "FMOD",
+          "it": "FMOD",
+          "fr": "FMOD"
+        }
+      ],
+      "systems": [
+        {
+          "en": "Win32 API for audio",
+          "it": "Win32 API per l'audio",
+          "fr": "Win32 API per l'audio"
+        },
+        {
+          "en": "C++ STL (vector, map, string)",
+          "it": "C++ STL (vector, map, string)",
+          "fr": "C++ STL (vector, map, string)"
+        },
+        {
+          "en": "Chrono for timing",
+          "it": "Chrono per il timing",
+          "fr": "Chrono per il timing"
+        }
+      ]
+    },
+    "learning": [
+      {
+        "en": "3D graphics pipeline with OpenGL",
+        "it": "Pipeline di grafica 3D con OpenGL",
+        "fr": "Pipeline di grafica 3D con OpenGL"
+      },
+      {
+        "en": "Model import and integration with Assimp",
+        "it": "Import e integrazione dei modelli con Assimp",
+        "fr": "Import e integrazione dei modelli con Assimp"
+      },
+      {
+        "en": "State management in game architecture",
+        "it": "Gestione dello stato nell'architettura di gioco",
+        "fr": "Gestione dello stato nell'architettura di gioco"
+      },
+      {
+        "en": "Performance optimization for graphics",
+        "it": "Ottimizzazione delle prestazioni per la grafica",
+        "fr": "Ottimizzazione delle prestazioni per la grafica"
+      },
+      {
+        "en": "Real-time audio integration",
+        "it": "Integrazione audio in tempo reale",
+        "fr": "Integrazione audio in tempo reale"
+      },
+      {
+        "en": "Complex system coordination",
+        "it": "Coordinamento di sistemi complessi",
+        "fr": "Coordinamento di sistemi complessi"
+      },
+      {
+        "en": "Collaborative game development",
+        "it": "Sviluppo di gioco collaborativo",
+        "fr": "Sviluppo di gioco collaborativo"
+      }
+    ],
+    "conclusion": {
+      "en": "Zurg Attack is a 3D arcade game built in C++ with OpenGL API, featuring spaceship control, enemy encounters, power-ups, and scoring. Working with Assimp for model loading and FMOD for audio, I contributed to a complete game loop. This project taught me 3D graphics fundamentals, real-time game system integration, and how to build engaging arcade experiences.",
+      "it": "Zurg Attack è un gioco 3D dove ho contribuito creando sistemi core per oggetti scena, power up, collisioni, rendering OpenGL, audio, stato gioco, livelli e input. Ho usato librerie avanzate come Assimp e FMOD per un'esperienza immersiva, padroneggiando la pipeline grafica OpenGL. Questo progetto mi ha insegnato a sviluppare giochi 3D completi, dall'import modelli alla fisica di gioco, creando un'esperienza arcade coinvolgente ispirata a Toy Story.",
+      "fr": "Zurg Attack è un gioco 3D dove ho contribuito creando sistemi core per oggetti scena, power up, collisioni, rendering OpenGL, audio, stato gioco, livelli e input. Ho usato librerie avanzate come Assimp e FMOD per un'esperienza immersiva, padroneggiando la pipeline grafica OpenGL. Questo progetto mi ha insegnato a sviluppare giochi 3D completi, dall'import modelli alla fisica di gioco, creando un'esperienza arcade coinvolgente ispirata a Toy Story."
+    }
+  }
+}

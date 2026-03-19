@@ -1,0 +1,65 @@
+Word creation system
+Implemented system that creates words by instantiating 3D letters as children of word object. Each letter is separate prefab (A-Z) dynamically loaded from Resources. Letters auto-position with layout system to form correct word.
+Keyboard input tutorial
+Created tutorial showing player how to use keyboard. Instantiates three words ('usa', 'la', 'tastiera') that fall gradually, teaching game controls through gameplay.
+Word management system
+Modified system to manage spawned words, track active words. When word completed, removes from list and animates upward before destruction.
+Alphabet letter prefabs
+Created and configured prefabs for all 26 letters (A-Z), each with materials and layout. Prefabs used by word creation system to compose text dynamically.
+Material and font system
+Configured materials for green and red text, updated TextMeshPro fonts for better readability. Managed font fallback for special characters.
+Main game scene
+Updated main scene with tutorial mechanics, positioned initial words, configured background movement. Scene integrates all systems for gameplay.
+Dynamic resource loading
+Implemented Resources.Load for dynamic prefab instantiation. No direct references, allowing flexible asset management.
+Animation and physics system
+Configured physics for tutorial words: gradual gravity enable, Rigidbody constraints for controlled movement. Managed animations for drop timing.
+Component-Based Composition
+Words use composition over inheritance. Each word contains letters as children. Modular and reusable for different word types.
+Composition hierarchy: Parent Word > Child Letters, each prefab self-contained with layout element. Manager tracks word instances. Tutorial instantiates special word sets.
+Single Responsibility
+WordObject creates words, WordsList manages them, UsaLaTastiera runs tutorial.
+Open/Closed
+Add new letters without changing word creation code.
+Liskov Substitution
+All letter prefabs follow same pattern.
+Interface Segregation
+Components interact via specific interfaces.
+Dependency Inversion
+Use Resources.Load abstract layer instead of direct references.
+C# Scripts Created/Modified
+UsaLaTastiera, WordObject, etc.
+Alphabet Prefabs Created
+A-Z with materials and layout
+Scene Files Modified
+ScenaGenerale.unity with integrated systems
+Materials Configured
+TextGreen, TextRed, font settings
+Dynamic Resources Loaded
+All 26 letters + Word prefab
+Commits Made
+Changes to scenes, scripts, prefabs, materials
+Dynamic resource loading with Resources.Load
+Dictionary for character-to-prefab mapping
+LayoutElement for automatic positioning
+Rigidbody constraints for physics control
+Coroutines for timed sequences
+Collider dynamic sizing based on word length
+Prefab instantiation at runtime
+Material assignment and swapping
+Font fallback management
+TextMeshPro
+Unity UI
+Unity Physics
+Resources.Load
+Instantiate
+Coroutine
+BoxCollider
+Rigidbody
+LayoutElement
+Composition over inheritance for flexibility
+Modular resource management through Resources
+Dynamic sizing and layout for generated content
+Physics constraints for controlled movement
+Tutorial design through gameplay experience
+Prefab-based architecture for scalability

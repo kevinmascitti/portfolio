@@ -50,6 +50,7 @@ const projectsList: Project[] = [
     servicesKey: "project.connecting-nature.services",
     video: projectAssets["connecting-nature"].video,
     images: projectAssets["connecting-nature"].images,
+    documentationKey: "project.connecting-nature.documentation",
   },
 
   {

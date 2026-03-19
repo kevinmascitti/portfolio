@@ -1,0 +1,67 @@
+Zurg Attack is a 3D arcade game inspired by Toy Story, programmed in C and C++ with OpenGL API. Player controls spaceship dodging obstacles and collecting coins while shooting lasers at enemies. I contributed to core systems in collaboration with Federico Mafrici for Computer Graphics course at Politecnico di Torino.
+Scene object management
+Implemented ObjectScene class representing all 3D world objects (spaceship, enemies, coins, lasers). Each object has position, dimensions, collision volume, unique ID. Updated every frame for movement and collisions.
+Power-up system
+Created random power-up collection: temporary invincibility, 2X score multiplier, bomb destroying nearby enemies. Power-ups have limited duration managed with timers and boolean states.
+Collision detection
+Implemented bounding box collision detection between objects. Spaceship collects coins, loses health from enemies, activates power-ups. Collisions checked every frame for realistic physics.
+Configured OpenGL rendering pipeline with lights, textures, and imported models. Objects drawn with transformations, materials, textures for realistic appearance. Manages camera and perspective.
+Audio integration
+Integrated FMOD for sounds and music. Sound effects for shots, collisions, power-ups, and Toy Story-themed music. System allows toggling audio and managing volume separately.
+Game state management
+Tracked HP, score, level, difficulty. Game has multiple states (menu, playing, pause, game over) with smooth transitions. Records saved and displayed in leaderboard.
+Level and difficulty progression
+Implemented level progression with increasing difficulty. Each level speeds up enemies and increases spawn frequency. Special boss levels and mode variants with adjustable parameters.
+Input and controls
+Managed keyboard and mouse input for spaceship movement and laser firing. Mouse controls rotation, WASD controls movement, spacebar pauses. Input processed each frame for responsive controls.
+Monolithic C++ with Modular Functions
+Global state variables for game data. Main function initializes GLUT and OpenGL. Display() renders every frame, Update() handles logic. Callback functions for input and timing.
+Single Responsibility
+Separate classes for objects (ObjectScene), audio (Sound), independent functions for rendering and logic.
+Open/Closed
+Add new power-ups or object types through switch statements and enums.
+Liskov Substitution
+All objects follow ObjectScene interface pattern.
+Interface Segregation
+Rendering separated from logic, audio separated from gameplay.
+Dependency Inversion
+Use GLUT callbacks instead of custom loop.
+C++ Files Modified
+SimpleOpenGL_Loader.cpp, Sound.cpp/h
+Classes Implemented
+ObjectScene for entities, Sound for audio
+Power-Ups Created
+Invincibility, 2X points, Bomb
+3D Models Imported
+Spaceship, Zurg, coins, lasers
+Textures Applied
+Materials for all objects
+Sounds Integrated
+Effects and Toy Story music
+Commits Made
+README updates documenting project
+Pointer management and memory handling
+Mathematical algorithms for bounding boxes
+3D transformations and matrices
+Ray casting for input projection
+Object pooling simulation
+Associate maps for texture management
+State machines via flags
+Timer-based game logic
+Global state management
+OpenGL
+GLUT
+Assimp
+DevIL
+FMOD
+Win32 API for audio
+C++ STL (vector, map, string)
+Chrono for timing
+3D graphics pipeline with OpenGL
+Model import and integration with Assimp
+State management in game architecture
+Performance optimization for graphics
+Real-time audio integration
+Complex system coordination
+Collaborative game development
+Zurg Attack is a 3D arcade game built in C++ with OpenGL API, featuring spaceship control, enemy encounters, power-ups, and scoring. Working with Assimp for model loading and FMOD for audio, I contributed to a complete game loop. This project taught me 3D graphics fundamentals, real-time game system integration, and how to build engaging arcade experiences.
