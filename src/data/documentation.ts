@@ -1078,7 +1078,7 @@ export const documentation: Record<string, ProjectDocumentation> = {
       },
       description: {
         en: "Words use composition over inheritance. Each word contains letters as children. Modular and reusable for different word types.",
-        it: "Come funziona: - Ogni parola è un GameObject con WordObject script - Le lettere sono prefab figli con LayoutElement - Il sistema di input gestisce il tutorial separatamente Vantaggi: - I componenti sono modulari e riutilizzabili - Facile aggiungere nuove parole o lettere - Separazione chiara tra logica e presentazione",
+        it: "L'architettura di Outer Words segue un approccio a componenti: ogni parola è un GameObject che contiene lettere 3D come figli, gestite da script dedicati. La logica di input e il tutorial sono separati dalla generazione dei contenuti, così i sistemi restano modulari, riutilizzabili e facili da estendere senza introdurre accoppiamenti rigidi.",
         fr: "Les mots privilégient la composition plutôt que l'héritage. Chaque mot contient les lettres en enfants. Le système est modulaire et réutilisable pour différents types de mots."
       },
       principles: [
