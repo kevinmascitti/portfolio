@@ -13,6 +13,8 @@ export type Project = {
   video?: string
   /** Image URLs; when video is set, these are shown below the text; otherwise first two are top, rest in scroll */
   images: string[]
+  /** Optional i18n key for technical documentation */
+  documentationKey?: string
 }
 
 import { projectAssets } from "./projectAssets"
@@ -32,6 +34,7 @@ const projectsList: Project[] = [
     servicesKey: "project.televasion.services",
     video: projectAssets.televasion.video,
     images: projectAssets.televasion.images,
+    documentationKey: "project.televasion.documentation",
   },
 
   {
@@ -62,6 +65,7 @@ const projectsList: Project[] = [
     servicesKey: "project.outer-words.services",
     video: projectAssets["outer-words"].video,
     images: projectAssets["outer-words"].images,
+    documentationKey: "project.outer-words.documentation",
   },
 
   {
@@ -76,6 +80,7 @@ const projectsList: Project[] = [
     roleKey: "project.arise-of-cosmos.role",
     servicesKey: "project.arise-of-cosmos.services",
     images: projectAssets["arise-of-cosmos"].images,
+    documentationKey: "project.arise-of-cosmos.documentation",
   },
 
   {
@@ -91,6 +96,7 @@ const projectsList: Project[] = [
     servicesKey: "project.zurg-attack.services",
     video: projectAssets["zurg-attack"].video,
     images: projectAssets["zurg-attack"].images,
+    documentationKey: "project.zurg-attack.documentation",
   },
 
   {

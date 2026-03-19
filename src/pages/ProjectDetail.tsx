@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react"
 import { Link, useParams } from "react-router-dom"
 import HorizontalScrollHint from "../components/HorizontalScrollHint"
 import ImageLightbox from "../components/ImageLightbox"
+import ProjectDocumentation from "../components/ProjectDocumentation"
 import { projects } from "../data/projects"
 import { useI18n } from "../i18n"
 
@@ -30,6 +31,7 @@ export default function ProjectDetail() {
   const next = index >= 0 && index < projects.length - 1 ? projects[index + 1] : null
 
   const [activeSrc, setActiveSrc] = useState<string | null>(null)
+  const [isDocumentationExpanded, setIsDocumentationExpanded] = useState(false)
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -184,6 +186,19 @@ export default function ProjectDetail() {
             </p>
           </div>
         </div>
+
+        {project.documentationKey && (
+          <div className="mt-20 flex justify-center">
+            <button
+              onClick={() => setIsDocumentationExpanded(!isDocumentationExpanded)}
+              className="px-6 py-3 bg-black text-white rounded-full font-medium hover:bg-black/80 transition-colors"
+            >
+              {isDocumentationExpanded ? t("documentation.collapse") : t("documentation.expand")}
+            </button>
+          </div>
+        )}
+
+        {isDocumentationExpanded && project.documentationKey && <ProjectDocumentation documentationKey={project.documentationKey} />}
 
         {rest.length ? (
           <div className="mt-24">
